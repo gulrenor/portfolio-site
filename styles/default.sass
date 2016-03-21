@@ -104,6 +104,11 @@ nav
   h1
     color: $headerlight
 
+.anchor
+  //ofset for fixed header
+  position: relative
+  top: -4rem
+
 .shadow
   position: fixed
   width: 100%
@@ -156,37 +161,76 @@ nav
   display: flex
   width: 100%
   flex-direction: row
-  justify-content: space-between
+  justify-content: space-around
   flex-wrap: wrap
-  figure
+
+.gallery-item
+  position: relative
+  display: block
+  width: 24rem
+  height: 14rem
+  border: 0.1rem solid black
+  overflow: hidden
+  margin-bottom: 1rem
+  cursor: pointer
+  & > *
+    position: absolute
+    left: 0
+    top: 0
+    padding: 0
+    width: 100%
+    height: 100%
+  img
+    object-fit: cover
+  div
+    opacity: 0
+    padding: 1rem
+    background-color: $horizontal-menu-bgcolor-end
+    transition: opacity 0.2s ease
+  div > *
+    color: white
+    text-align: center
+  &:hover > div
+    opacity: 0.9
+
+.gallery-modal
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  display: none
+  background-color: rgba(0,0,0,0.9)
+  z-index: 9998
+  div
     position: relative
-    border: 2px solid red
-    margin-bottom: 2rem
-    div
-      position: absolute
-      background-color: $horizontal-menu-bgcolor-end
-      width: 50%
-      height: 50%
-      top: 25%
-      left: 25%
-      text-align: center
-      opacity: 0
-      transition: opacity 0.5s ease, width 0.2s ease, height 0.2s ease, left 0.2s ease, top 0.2s ease
-      border: 3px solid green
-    &:hover > div
-      opacity: 0.8
-      width: 100%
-      height: 100%
-      top: 0
-      left: 0
-    figcaption
-      margin-top: 3rem
-      *
-        color: white
+    background-color: white
+    padding: 1rem
+    width: 80%
+    top: 10vh
+    height: 80%
+    min-height: 80vh
+    margin: 0 auto
+    overflow: scroll
+    pointer-events: auto
     img
-      width: 19rem
-      height: 14rem
-      object-fit: cover
+      max-width: 100%
+
+.gallery-item-close
+  position: absolute
+  top: 5vh
+  right: 10%
+  font-size: 0.8rem
+  padding: 0.5rem
+  color: black
+  background-color: white
+  z-index: 9999
+  cursor: pointer
+  transition: background-color 0.5s ease, color 0.5s ease
+  &:hover
+    background-color: $horizontal-menu-bgcolor-end
+    color: white
+
 
 #contact-form
   display: flex
@@ -203,3 +247,52 @@ nav
 footer
   text-align: right
   font-size: 0.8rem
+
+
+@media screen and (max-width: 760px)
+  #site-container
+    width: 100vw
+  header
+    width: 100vw
+    margin: 0
+    padding: 0
+    height: 100%
+    position: static
+    text-align: center
+    h1
+      font-size: 2.5rem
+    h2
+      font-size: 1.2rem
+  .indent
+    margin-left: 0
+  nav
+    position: static
+    width: 100vw
+    padding: 0
+    margin: 0
+  .section
+    width: 100vw
+    margin: 0
+    padding: 0
+  .shadow
+    display: none
+  .horizontal-menu
+    border: 0.1rem solid black
+    display: flex
+    flex-direction: column
+    justify-content: center
+    list-style: none
+    font-family: $header-font
+    font-size: 1.1rem
+    padding: 0
+    li
+      text-align: center
+      padding: 0.5rem
+      margin: 0
+      background-color: $horizontal-menu-bgcolor-start
+      color: $horizontal-menu-color-start
+      transition: background-color 0.5s ease, color 0.5s ease
+      &:hover
+        background-color: $horizontal-menu-bgcolor-end
+        color: $horizontal-menu-color-end
+        cursor: pointer
