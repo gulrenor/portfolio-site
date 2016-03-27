@@ -15,8 +15,7 @@ body {
     font-size: 14px; } }
 h1, h2, h3 {
   margin: 0;
-  padding: 0;
-  color: #969696; }
+  padding: 0; }
 
 h1 {
   font-family: "Roboto";
@@ -24,7 +23,11 @@ h1 {
   line-height: 3rem; }
 
 h2 {
+  font-family: "Roboto";
   font-size: 2rem; }
+
+h3 {
+  font-size: 1.5rem; }
 
 a {
   color: inherit;
@@ -34,22 +37,39 @@ figure, figcaption {
   margin: 0;
   padding: 0; }
 
-#site-container {
+textarea {
+  resize: none; }
+
+img {
+  max-width: 100%; }
+
+main {
   width: 80vw;
   margin: 0 auto; }
-
-section {
-  margin: 2rem auto; }
 
 header {
   position: fixed;
   top: 0;
   height: 8rem; }
+  header i {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    background-color: #323232;
+    color: gainsboro;
+    padding: 0.75rem;
+    visibility: hidden;
+    transition: background-color 0.2s ease; }
+    header i:hover {
+      background-color: #3264c8; }
 
 nav {
   position: absolute;
   right: 0;
   top: 1.3rem; }
+
+section {
+  margin: 2rem auto; }
 
 .section {
   padding: 1rem;
@@ -62,6 +82,7 @@ nav {
   float: right; }
 
 .portrait {
+  width: 12.5rem;
   position: relative;
   top: -4rem; }
 
@@ -70,16 +91,20 @@ nav {
   color: #969696; }
   .dark h1 {
     color: gainsboro; }
+  .dark h2 {
+    color: #c8c8c8; }
 
 .light {
   background-color: white;
   color: #3c3c3c; }
   .light h1 {
-    color: #282828; }
+    color: #1e1e1e; }
+  .light h2 {
+    color: #505050; }
 
 .anchor {
   position: relative;
-  top: -4rem; }
+  top: -4.2rem; }
 
 .shadow {
   position: fixed;
@@ -101,10 +126,10 @@ nav {
   background-color: white;
   color: #3c3c3c;
   z-index: 999;
-  border-bottom: 0.25rem solid #282828; }
+  border-bottom: 0.25rem solid #1e1e1e; }
   .sticky h1 {
     display: inline-block;
-    color: #282828;
+    color: #1e1e1e;
     font-size: 2rem; }
   .sticky h2 {
     display: inline-block;
@@ -141,7 +166,7 @@ nav {
 
 .gallery-item {
   position: relative;
-  display: block;
+  justify-content: center;
   width: 24rem;
   height: 14rem;
   border: 0.1rem solid black;
@@ -158,6 +183,9 @@ nav {
   .gallery-item img {
     object-fit: cover; }
   .gallery-item div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     opacity: 0;
     padding: 1rem;
     background-color: #3264c8;
@@ -177,87 +205,123 @@ nav {
   display: none;
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 9998; }
-  .gallery-modal div {
+  .gallery-modal > div {
     position: relative;
     background-color: white;
-    padding: 1rem;
     width: 80%;
-    top: 10vh;
+    top: 10%;
     height: 80%;
+    padding: 1rem;
     min-height: 80vh;
     margin: 0 auto;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     pointer-events: auto; }
-    .gallery-modal div img {
-      max-width: 100%; }
+
+.gallery-image-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
+  .gallery-image-container img {
+    max-width: 100%;
+    width: 40%;
+    height: 40%;
+    margin: 2rem;
+    border: 0.1rem solid #323232;
+    box-shadow: 0.5rem 0.5rem 0.5rem #969696; }
 
 .gallery-item-close {
-  position: absolute;
-  top: 5vh;
+  position: fixed;
+  top: 10%;
   right: 10%;
-  font-size: 0.8rem;
-  padding: 0.5rem;
-  color: black;
-  background-color: white;
+  padding: 1rem;
   z-index: 9999;
   cursor: pointer;
-  transition: background-color 0.5s ease, color 0.5s ease; }
+  transition: color 0.5s ease; }
   .gallery-item-close:hover {
-    background-color: #3264c8;
-    color: white; }
+    color: #3264c8; }
+
+.contact-form-container {
+  display: flex;
+  flex-direction: row; }
+  .contact-form-container div {
+    width: 50%; }
+  .contact-form-container:nth-child(2) i {
+    margin: 0.5rem 1.5rem; }
 
 #contact-form {
   display: flex;
   flex-direction: column; }
-  #contact-form div {
-    display: flex;
-    justify-content: space-between;
-    margin: 1vw 0; }
-  #contact-form input {
-    width: 45%;
-    padding: 0.5rem; }
-    #contact-form input:focus {
+  #contact-form > * {
+    margin: 0.5rem; }
+  #contact-form input, #contact-form textarea {
+    padding: 0.5rem;
+    border: 0.2vw solid transparent; }
+    #contact-form input:focus, #contact-form textarea:focus {
       border: 0.2vw solid #3264c8; }
+  #contact-form button {
+    width: 40%;
+    border: 0;
+    padding: 0.5rem;
+    color: #3c3c3c;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    align-self: center; }
+    #contact-form button:hover {
+      background-color: #3264c8;
+      color: white; }
 
 footer {
+  min-height: 20vw;
   text-align: right;
   font-size: 0.8rem; }
 
 @media screen and (max-width: 760px) {
-  #site-container {
-    width: 100vw; }
+  main {
+    width: 100%;
+    margin: 0;
+    padding: 0; }
+
+  h1 {
+    font-size: 3rem; }
+
+  h2 {
+    font-size: 1.5rem; }
 
   header {
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    position: static;
-    text-align: center; }
-    header h1 {
-      font-size: 2.5rem; }
-    header h2 {
-      font-size: 1.2rem; }
+    height: 8rem;
+    position: fixed; }
+    header i {
+      visibility: visible; }
+
+  section {
+    margin: inherit 0; }
 
   .indent {
     margin-left: 0; }
 
   nav {
-    position: static;
+    display: none;
+    position: fixed;
+    top: 8rem;
+    left: 0;
     width: 100vw;
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    background-color: white;
+    z-index: 9999; }
 
   .section {
-    width: 100vw;
+    width: 100%;
     margin: 0;
-    padding: 0; }
+    padding: 1rem; }
 
   .shadow {
     display: none; }
 
   .horizontal-menu {
-    border: 0.1rem solid black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -269,12 +333,28 @@ footer {
       text-align: center;
       padding: 0.5rem;
       margin: 0;
+      border-bottom: 0.1rem solid #505050;
       background-color: none;
       color: inherit;
       transition: background-color 0.5s ease, color 0.5s ease; }
       .horizontal-menu li:hover {
         background-color: #3264c8;
         color: gainsboro;
-        cursor: pointer; } }
+        cursor: pointer; }
+
+  .gallery-item {
+    width: 100%;
+    height: 10rem; }
+    .gallery-item img {
+      object-position: 0 0; }
+
+  .gallery-modal > div {
+    width: 90%;
+    height: 95%;
+    top: 2.5%; }
+
+  .gallery-image-container img {
+    width: 100%;
+    height: 100%; } }
 
 /*# sourceMappingURL=default.css.map */

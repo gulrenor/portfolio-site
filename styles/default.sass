@@ -4,12 +4,15 @@ $header-font: 'Roboto'
 $body-font: 'Roboto Slab'
 $body-color: rgb(150,150,150)
 
-$bgdark: rgb(50,50,50)
-$colordark: rgb(150,150,150)
-$headerdark: rgb(220,220,220)
-$bglight: rgb(255,255,255)
-$colorlight: rgb(60,60,60)
-$headerlight: rgb(40,40,40)
+$dark-bg: rgb(50,50,50)
+$dark-body: rgb(150,150,150)
+$dark-h1: rgb(220,220,220)
+$dark-h2: rgb(200,200,200)
+
+$light-bg: rgb(255,255,255)
+$light-body: rgb(60,60,60)
+$light-h1: rgb(30,30,30)
+$light-h2: rgb(80,80,80)
 
 $horizontal-menu-bgcolor-start: none
 $horizontal-menu-bgcolor-end: rgb(50,100,200)
@@ -22,6 +25,8 @@ $horizontal-menu-color-end: rgb(220,220,220)
   background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%)
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 )
 
+$gallery-modal-height: 80%
+$gallery-modal-width: 80%
 
 *
   box-sizing: border-box
@@ -32,7 +37,7 @@ html
 body
   font-family: $body-font
   color: $body-color
-  background-color: $bglight
+  background-color: $light-bg
 
 // Breakpoints
 
@@ -43,7 +48,6 @@ body
 h1, h2, h3
   margin: 0
   padding: 0
-  color: $body-color
 
 h1
   font-family: $header-font
@@ -51,7 +55,11 @@ h1
   line-height: 3rem
 
 h2
+  font-family: $header-font
   font-size: 2rem
+
+h3
+  font-size: 1.5rem
 
 a
   color: inherit
@@ -61,22 +69,39 @@ figure, figcaption
   margin: 0
   padding: 0
 
-#site-container
+textarea
+  resize: none
+
+img
+  max-width: 100%
+
+main
   width: 80vw
   margin: 0 auto
-
-section
-  margin: 2rem auto
 
 header
   position: fixed
   top: 0
   height: 8rem
+  i
+    position: absolute
+    right: 1rem
+    top: 0.5rem
+    background-color: $dark-bg
+    color: $dark-h1
+    padding: 0.75rem
+    visibility: hidden
+    transition: background-color 0.2s ease
+    &:hover
+      background-color: $horizontal-menu-bgcolor-end
 
 nav
   position: absolute
   right: 0
   top: 1.3rem
+
+section
+  margin: 2rem auto
 
 .section
   padding: 1rem
@@ -89,25 +114,30 @@ nav
   float: right
 
 .portrait
+  width: 12.5rem
   position: relative
   top: -4rem
 
 .dark
-  background-color: $bgdark
-  color: $colordark
+  background-color: $dark-bg
+  color: $dark-body
   h1
-    color: $headerdark
+    color: $dark-h1
+  h2
+    color: $dark-h2
 
 .light
-  background-color: $bglight
-  color: $colorlight
+  background-color: $light-bg
+  color: $light-body
   h1
-    color: $headerlight
+    color: $light-h1
+  h2
+    color: $light-h2
 
 .anchor
   //ofset for fixed header
   position: relative
-  top: -4rem
+  top: -4.2rem
 
 .shadow
   position: fixed
@@ -123,13 +153,13 @@ nav
   width: 80vw
   top: 0
   height: 5rem
-  background-color: $bglight
-  color: $colorlight
+  background-color: $light-bg
+  color: $light-body
   z-index: 999
-  border-bottom: 0.25rem solid $headerlight
+  border-bottom: 0.25rem solid $light-h1
   h1
     display: inline-block
-    color: $headerlight
+    color: $light-h1
     font-size: 2rem
   h2
     display: inline-block
@@ -157,6 +187,8 @@ nav
       color: $horizontal-menu-color-end
       cursor: pointer
 
+
+
 .gallery
   display: flex
   width: 100%
@@ -166,7 +198,7 @@ nav
 
 .gallery-item
   position: relative
-  display: block
+  justify-content: center
   width: 24rem
   height: 14rem
   border: 0.1rem solid black
@@ -183,6 +215,9 @@ nav
   img
     object-fit: cover
   div
+    display: flex
+    flex-direction: column
+    justify-content: center
     opacity: 0
     padding: 1rem
     background-color: $horizontal-menu-bgcolor-end
@@ -202,82 +237,120 @@ nav
   display: none
   background-color: rgba(0,0,0,0.9)
   z-index: 9998
-  div
+  & > div
     position: relative
     background-color: white
+    width: $gallery-modal-width
+    top: (100 - $gallery-modal-height) / 2
+    height: $gallery-modal-height
     padding: 1rem
-    width: 80%
-    top: 10vh
-    height: 80%
     min-height: 80vh
     margin: 0 auto
-    overflow: scroll
+    overflow-y: scroll
+    overflow-x: hidden
     pointer-events: auto
-    img
-      max-width: 100%
+
+.gallery-image-container
+  width: 100%
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-items: center
+  img
+    max-width: 100%
+    width: 40%
+    height: 40%
+    margin: 2rem
+    border: 0.1rem solid $dark-bg
+    box-shadow: 0.5rem 0.5rem 0.5rem $dark-body
 
 .gallery-item-close
-  position: absolute
-  top: 5vh
-  right: 10%
-  font-size: 0.8rem
-  padding: 0.5rem
-  color: black
-  background-color: white
+  position: fixed
+  top: (100 - $gallery-modal-height) / 2
+  right: (100 - $gallery-modal-width) / 2
+  padding: 1rem
   z-index: 9999
   cursor: pointer
-  transition: background-color 0.5s ease, color 0.5s ease
+  transition: color 0.5s ease
   &:hover
-    background-color: $horizontal-menu-bgcolor-end
-    color: white
+    color: $horizontal-menu-bgcolor-end
 
+
+.contact-form-container
+  display: flex
+  flex-direction: row
+  div
+    width: 50%
+  &:nth-child(2) i
+    margin: 0.5rem 1.5rem
 
 #contact-form
   display: flex
   flex-direction: column
-  div
-    display: flex
-    justify-content: space-between
-    margin: 1vw 0
-  input
-    width: 45%
+  & > *
+    margin: 0.5rem
+  input, textarea
     padding: 0.5rem
+    border: 0.2vw solid rgba(0,0,0,0)
     &:focus
       border: 0.2vw solid $horizontal-menu-bgcolor-end
+  button
+    width: 40%
+    border: 0
+    padding: 0.5rem
+    color: $light-body
+    transition: background-color 0.2s ease, color 0.2s ease
+    align-self: center
+    &:hover
+      background-color: $horizontal-menu-bgcolor-end
+      color: white
+
+
 footer
+  min-height: 20vw
   text-align: right
   font-size: 0.8rem
 
 
 @media screen and (max-width: 760px)
-  #site-container
-    width: 100vw
-  header
-    width: 100vw
+  main
+    width: 100%
     margin: 0
     padding: 0
-    height: 100%
-    position: static
-    text-align: center
-    h1
-      font-size: 2.5rem
-    h2
-      font-size: 1.2rem
+    //overflow-x: hidden
+  h1
+    font-size: 3rem
+  h2
+    font-size: 1.5rem
+  header
+    height: 8rem
+    position: fixed
+    // The hamburger menu
+    i
+      visibility: visible
+  section
+    margin: inherit 0
   .indent
     margin-left: 0
   nav
-    position: static
+    display: none
+    position: fixed
+    top: 8rem
+    left: 0
     width: 100vw
     padding: 0
     margin: 0
+    background-color: white
+    z-index: 9999
+
   .section
-    width: 100vw
+    width: 100%
     margin: 0
-    padding: 0
+    padding: 1rem
   .shadow
     display: none
   .horizontal-menu
-    border: 0.1rem solid black
     display: flex
     flex-direction: column
     justify-content: center
@@ -289,6 +362,7 @@ footer
       text-align: center
       padding: 0.5rem
       margin: 0
+      border-bottom: 0.1rem solid $light-h2
       background-color: $horizontal-menu-bgcolor-start
       color: $horizontal-menu-color-start
       transition: background-color 0.5s ease, color 0.5s ease
@@ -296,3 +370,17 @@ footer
         background-color: $horizontal-menu-bgcolor-end
         color: $horizontal-menu-color-end
         cursor: pointer
+  .gallery-item
+    width: 100%
+    height: 10rem
+    img
+      object-position: 0 0
+  .gallery-modal
+    & > div
+      width: 90%
+      height: 95%
+      top: 2.5%
+  .gallery-image-container
+    img
+      width: 100%
+      height: 100%
