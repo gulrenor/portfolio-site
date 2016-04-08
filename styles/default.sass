@@ -82,6 +82,8 @@ $horizontal-menu-color-end: rgb(220,220,220)
 $gallery-modal-height: 80%
 $gallery-modal-width: 80%
 
+$header-height: 7rem
+
 *
   box-sizing: border-box
 
@@ -91,14 +93,19 @@ html
 
 body
   font-family: $body-font
-  color: $body-color
+  color: $rgba-primary-4
   background-color: $light-bg
 
 // Breakpoints
 
-@media screen and (max-width: 900px)
+@media screen and (max-width: 970px)
   html
     font-size: 14px
+
+@media screen and (max-width: 360px)
+  html
+    font-size: 12px
+
 
 h1, h2, h3, h4
   margin: 0
@@ -145,60 +152,56 @@ main
 
 header
   position: fixed
+  z-index: 999
   top: 0
-  height: 8rem
   width: inherit
-  border-bottom: 0.5rem solid rgba(0,0,0,0)
-  transition: height 0.3s ease
+  border-bottom: 3px solid rgba(0,0,0,0)
+  transition: height 0.2s ease-in-out, border-bottom 0.2s ease-in-out
   i
     position: absolute
     right: 1rem
     top: 0.5rem
-    background-color: $dark-bg
-    color: $dark-h1
+    background-color: $rgba_primary_3
+    color: white
     padding: 0.75rem
     visibility: hidden
     transition: background-color 0.2s ease
     &:hover
-      background-color: $horizontal-menu-bgcolor-end
+      background-color: $rgba-complement-3
   h1
     transition: font-size 0.1s ease
   h2
     transition: display 0.1s ease, font-size 0.1s ease
-
-nav
-  position: absolute
-  right: 0
-  top: 1.3rem
 
 section
   margin: 2rem auto
   border-radius: 0.5rem
 
 form
-  color: $light-h1
+  color: $rgba_primary_4
 
 button
   border: 0
   padding: 0.5rem
-  color: $light-body
-  transition: background-color 0.2s ease, color 0.2s ease
+  background-color: $rgba-primary-3
+  color: white
+  transition: background-color 0.2s ease-in-out
   &:hover
-    background-color: $horizontal-menu-bgcolor-end
-    color: white
+    background-color: $rgba-complement-3
 
 input, textarea
   padding: 0.5rem
   border: 0.2vw solid rgba(0,0,0,0)
   margin-bottom: 1rem
   &:focus
-    border: 0.2vw solid $horizontal-menu-bgcolor-end
+    border: 0.2vw solid $rgba-complement-3
 
 .section
   padding: 1rem 1.5rem
 
 #header-dummy
-  height: 8rem
+  height: $header-height
+  margin: 0
 
 .indent
   margin-left: 0.5rem
@@ -213,6 +216,10 @@ input, textarea
   border-radius: 0.125rem
   padding: 0.125rem 0.5rem
   margin: 0.25rem 0
+
+.title-block
+  width: 60%
+  padding: 1rem
 
 .portrait
   position: relative
@@ -231,29 +238,30 @@ input, textarea
   clear: both
 
 .dark
-  background-color: $dark-bg
-  color: $dark-body
+  background-color: $rgba-primary-4
+  color: $rgba-primary-1
   h1
-    color: $dark-h1
+    color: $rgba-complement-3
   h2, h3, h4
-    color: $dark-h2
+    color: $rgba_complement_0
 
 .light
-  background-color: $light-bg
-  color: $light-body
+  background-color: white
+  color: $rgba-primary-3
   h1
-    color: $light-h1
+    color: $rgba-primary-4
   h2, h3, h4
     color: $light-h2
 
 header .title
   font-family: $title-font
   font-size: 3rem
-  //color: $title
+  color: $rgba-primary-4
   //margin-left: -1rem
 header .subtitle
   font-family: $body-font
   font-size: 1.7rem
+  color: $rgba-primary-2
 
 .anchor
   //ofset for fixed header
@@ -270,41 +278,45 @@ header .subtitle
   display: none
 
 .sticky
-  position: fixed
-  z-index: 999
-  width: 80vw
-  top: 0
-  height: 5rem
-  border-bottom: 0.2rem solid $light-body
-  transition: height 0.2s ease, border-bottom 0.2s ease
-  h1
+  border-bottom: 3px solid $rgba-primary-3
+  transition: height 0.2s ease-in-out, border-bottom 0.2s ease-in-out
+  .title, .subtitle
     display: inline-block
-    color: $light-h1
-    font-size: 2rem
-    transition: font-size 0.2s ease
-  h2
-    display: inline-block
-    font-size: 1.2rem
     transition: display 0.2s ease, font-size 0.2s ease
-  nav
-    top: 0
+  .title
+    font-size: 2rem
+  .subtitle
+    font-size: 1rem
+
+.header-container
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+  justify-content: space-between
+  align-items: center
+  align-content: center
+  background-color: white
 
 .nav-menu
   display: flex
   flex-direction: row
   justify-content: flex-end
+  flex-wrap: nowrap
+  min-width: 20rem
   list-style: none
   font-family: $header-font
   font-size: 1.1rem
+  padding: 0
+  border-top: 0
   li
-    background-color: $horizontal-menu-bgcolor-start
-    color: $horizontal-menu-color-start
     padding: 0.5rem
     margin: 0 0.5rem
-    transition: background-color 0.5s ease, color 0.5s ease
+    border-radius: 0.25rem
+    color: $rgba-primary-0
+    transition: background-color 0.5s ease, color 0.3s ease
     &:hover
-      background-color: $horizontal-menu-bgcolor-end
-      color: $horizontal-menu-color-end
+      background-color: $rgba-primary-0
+      color: white
       cursor: pointer
 
 .shade
@@ -348,7 +360,7 @@ header .subtitle
   //width: 24rem
   width: 48%
   height: 14rem
-  border: 0.1rem solid $light-h2
+  border: 0.1rem solid $rgba_primary_0
   overflow: hidden
   margin-bottom: 1rem
   cursor: pointer
@@ -367,7 +379,8 @@ header .subtitle
     justify-content: center
     opacity: 0
     padding: 1rem
-    background-color: $horizontal-menu-bgcolor-end
+    background-color: $rgba_complement_3
+    color: white
     transition: opacity 0.2s ease
   div > *
     color: white
@@ -384,6 +397,7 @@ header .subtitle
   display: none
   background-color: rgba(0,0,0,0.9)
   z-index: 9998
+  overflow: hidden
   & > div
     position: relative
     background-color: white
@@ -409,8 +423,13 @@ header .subtitle
     width: 40%
     height: 40%
     margin: 2rem
-    border: 0.1rem solid $dark-bg
-    box-shadow: 0.5rem 0.5rem 0.5rem $dark-body
+    border: 0.1rem solid $rgba-primary-4
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(125,125,125,0.3)
+
+  .full
+    width: 100%
+  .third
+    width: 26%
 
 .gallery-item-close
   position: fixed
@@ -471,7 +490,10 @@ footer
   font-size: 0.8rem
 
 
-@media screen and (max-width: 760px)
+////////////////////////////////////
+////////////////////////////////////
+////////////////////////////////////
+@media screen and (max-width: 768px)
   main
     width: 100%
     margin: 0
@@ -482,12 +504,20 @@ footer
   h2
     font-size: 1.5rem
   header
-    height: 8rem
-    position: fixed
-    // The hamburger menu
-    border: inherit
-    i
-      visibility: visible
+    width: 100%
+  .sticky .subtitle
+    display: none
+  .sticky nav
+    border-top: 3px solid $rgba-primary-3
+  .header-container
+    flex-direction: column
+    align-items: flex-start
+  nav
+    width: 100%
+  .title-block
+    width: 80%
+  #hamburger
+    visibility: visible
   section
     margin: inherit 0
     border-radius: 0
@@ -495,7 +525,7 @@ footer
     margin-left: 0
   .section
     width: 100%
-    margin: 0
+    //margin: 0
     padding: 1rem
   #nav
     display: none
@@ -505,6 +535,8 @@ footer
     padding: 0
     background-color: white
     z-index: 9999
+  nav
+    display: none
   .shadow
     display: none
   .nav-menu
@@ -521,12 +553,11 @@ footer
       text-align: center
       padding: 0.5rem
       margin: 0
-      border-bottom: 0.1rem solid $horizontal-menu-color-end
-      background-color: $horizontal-menu-bgcolor-end
-      color: $horizontal-menu-color-end
-      transition: color 0.5s ease
+      border-bottom: 0.1rem solid $rgba-primary-1
+      background-color: $rgba-primary-4
+      color: white
       &:hover
-        color: white
+        background-color: $rgba-primary-3
         cursor: pointer
   .gallery-item
     width: 100%
@@ -541,21 +572,39 @@ footer
   .gallery-image-container
     img
       width: 100%
-      height: 100%
+      height: auto
+    .full
+      width: 100%
+    .third
+      width: 100%
 
-
+////////////////////////////////////
+////////////////////////////////////
+////////////////////////////////////
 @media screen and (max-width: 360px)
   header, #header-dummy
-    height: 4rem
-  header .title
-    font-size: 2rem
-  header .subtitle
-    font-size: 1.3rem
+//  height: 4rem
+//  header .title
+//    font-size: 2rem
+//  header .subtitle
+//    font-size: 1.3rem
+//  .contact-form-container
+//    flex-direction: column
+//    #contact-form
+//      width: 100%
+//      & > div
+//        width: 100%
+//    #social-buttons-container
+//      width: 100%
 
+
+////////////////////////////////////
+////////////////////////////////////
+////////////////////////////////////
 @media screen and (max-width: 260px)
-  header, #header-dummy
-    height: 2.5rem
-  header .title
-    font-size: 1.5rem
-  header .subtitle
-    display: none
+//  header, #header-dummy
+//    height: 2.5rem
+//  header .title
+//    font-size: 1.5rem
+//  header .subtitle
+//    display: none

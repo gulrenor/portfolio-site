@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>Tim Harrison</title>
+    <title>Tim Harrison | Web Developer &amp; Designer</title>
 
     <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
     <link rel="stylesheet" href="styles/normalize.css"/>
@@ -16,30 +16,31 @@
     <main>
 
       <!-- Header + Nav -->
-      <header class="section light">
-        <a href="#top">
-          <div>
-            <h1 class="title">Tim Harrison</h1>
-            <h2 class="subtitle">Web Developer &amp; Designer</h2>
-          </div>
-        </a>
-        <i id="hamburger" class="fa fa-bars fa-2x"></i>
+      <header>
+          <div class="header-container">
+            <div class="title-block">
+              <h1 class="title">Tim Harrison</h1>
+              <h2 class="subtitle">Web Developer &amp; Designer</h2>
+            </div>
 
-        <nav id="nav">
-          <ul class="nav-menu">
-            <a href="#about">
-              <li>About</li>
-            </a>
-            <a href="#work">
-              <li>Work</li>
-            </a>
-            <a href="#contact">
-              <li>Contact Me</li>
-            </a>
-          </ul>
-        </nav>
+          <i id="hamburger" class="fa fa-bars fa-2x"></i>
 
-        <div class="shadow"></div>
+          <nav class="horizontal-nav">
+            <ul class="nav-menu">
+              <a href="#about">
+                <li>About</li>
+              </a>
+              <a href="#work">
+                <li>Work</li>
+              </a>
+              <a href="#contact">
+                <li>Contact Me</li>
+              </a>
+            </ul>
+          </nav>
+
+          <div class="shadow"></div>
+        </div>
       </header>
 
       <section id="header-dummy"></section>
@@ -50,7 +51,7 @@
         <div class="clearfix">
           <img class="portrait right" src="images/about/tim-silo.png"/>
           <h2>A little bit about myself.</h2>
-          <p>A versatile, creative technology professional with a wide range of skills including web development and design, graphic design, and information technology experience. Strong knowledge of front and back-end development and design, utilizing emerging technologies and frameworks to improve user experience on the web. Provides a commitment to quality and detail, with strong team skills. Seeking a dynamic, collaborative environment to further my skills and grow professionally.</p>
+          <p>I'm a versatile, creative technology professional with a wide range of skills including web development and design, graphic design, and information technology experience. I have a strong knowledge of front and back-end development and design, and I utilize emerging technologies and frameworks to improve user experience on the web. I provide a commitment to quality and detail, and I have strong team skills. I'm seeking a dynamic, collaborative environment to further my skills and grow professionally.</p>
           <h4>My Skills</h4>
           <span class="skill-tag">HTML5</span>
           <span class="skill-tag">CSS3</span>
@@ -99,8 +100,8 @@
               <p>Visit
                 <a href="http://www.kidsalot.com/">Website (www.kidsalot.com)</a>.</p>
               <div class="gallery-image-container">
-                <img src="images/work/kal001.png"/>
-                <img src="images/work/kal006.png"/>
+                <img class="full" src="images/work/kal001.png"/>
+                <img class="full" src="images/work/kal006.png"/>
                 <img src="images/work/kal003.png"/>
                 <img src="images/work/kal004.png"/>
                 <img src="images/work/kal005.png"/>
@@ -113,18 +114,18 @@
             <img src="images/work/studios001.png"/>
             <div>
               <h2>Studio S Architecture</h2>
-              <p>Used HTML, CSS, and Bootstrap framework to develop an online presence for a new Architecture firm</p>
+              <p>Used HTML, CSS, and Bootstrap framework to develop an online presence for a new architecture firm</p>
             </div>
           </a>
           <article class="gallery-modal">
             <i class="fa fa-times fa-4x gallery-item-close"></i>
             <div>
               <h2>Studio S Architecture</h2>
-              <p>Used HTML, CSS, and Bootstrap framework to develop an online presence for a new Architecture firm</p>
+              <p>Used HTML, CSS, and Bootstrap framework to develop an online presence for a new architecture firm</p>
               <p>Visit
                 <a href="http://www.studiosarchitecture.net">Website (www.studiosarchitecture.net)</a>.</p>
               <div class="gallery-image-container">
-                <img src="images/work/studios001.png"/>
+                <img class="full" src="images/work/studios001.png"/>
                 <img src="images/work/studios002.png"/>
                 <img src="images/work/studios003.png"/>
               </div>
@@ -146,7 +147,7 @@
               <p>Visit
                 <a href="http://www.drlarchitects.com">Website (www.drlarchitects.com)</a>.</p>
               <div class="gallery-image-container">
-                <img src="images/work/drl001.png"/>
+                <img class="full" src="images/work/drl001.png"/>
                 <img src="images/work/drl002.png"/>
                 <img src="images/work/drl003.png"/>
               </div>
@@ -158,18 +159,18 @@
             <img src="images/work/smallplanet001.png"/>
             <div>
               <h2>Small Planet Institute</h2>
-              <p>Provided front end design, development, and thematic changes as well as back end adjustments for Small Planet's existing Wordpress application</p>
+              <p>Provided front-end design, development, and thematic changes as well as back end adjustments for Small Planet's existing Wordpress application</p>
             </div>
           </a>
           <article class="gallery-modal">
             <i class="fa fa-times fa-4x gallery-item-close"></i>
             <div>
               <h2>Small Planet Institute</h2>
-              <p>Provided front end design, development, and thematic changes as well as back end adjustments for Small Planet's existing Wordpress application</p>
+              <p>Provided front-end design, development, and thematic changes as well as back end adjustments for Small Planet's existing Wordpress application</p>
               <p>Visit
                 <a href="http://smallplanet.org/">Website (www.smallplanet.org)</a>.</p>
               <div class="gallery-image-container">
-                <img src="images/work/smallplanet001.png"/>
+                <img class="full" src="images/work/smallplanet001.png"/>
               </div>
             </div>
           </article>
@@ -181,7 +182,8 @@
       <!-- Contact Me -->
       <a name="contact" id="contact" class="anchor"></a>
       <section class="section dark">
-        <h2>Get In Touch</h2><span>Send me a message, or connect with me on social networks.</span>
+        <h2>Get In Touch.</h2>
+        <span>Send me a message, or connect with me on social networks.</span>
         <div class="contact-form-container">
           <div id="form-messages"></div>
           <form id="contact-form" action="mail/mail.php" method="post">

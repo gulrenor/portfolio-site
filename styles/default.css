@@ -9,12 +9,15 @@ html {
 
 body {
   font-family: "Hind";
-  color: #969696;
+  color: #094b85;
   background-color: white; }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 970px) {
   html {
     font-size: 14px; } }
+@media screen and (max-width: 360px) {
+  html {
+    font-size: 12px; } }
 h1, h2, h3, h4 {
   margin: 0;
   padding: 0;
@@ -60,17 +63,17 @@ main {
 
 header {
   position: fixed;
+  z-index: 999;
   top: 0;
-  height: 8rem;
   width: inherit;
-  border-bottom: 0.5rem solid transparent;
-  transition: height 0.3s ease; }
+  border-bottom: 3px solid transparent;
+  transition: height 0.2s ease-in-out, border-bottom 0.2s ease-in-out; }
   header i {
     position: absolute;
     right: 1rem;
     top: 0.5rem;
-    background-color: #094b85;
-    color: #ffca7e;
+    background-color: #0e6cc1;
+    color: white;
     padding: 0.75rem;
     visibility: hidden;
     transition: background-color 0.2s ease; }
@@ -80,11 +83,6 @@ header {
     transition: font-size 0.1s ease; }
   header h2 {
     transition: display 0.1s ease, font-size 0.1s ease; }
-
-nav {
-  position: absolute;
-  right: 0;
-  top: 1.3rem; }
 
 section {
   margin: 2rem auto;
@@ -96,11 +94,11 @@ form {
 button {
   border: 0;
   padding: 0.5rem;
-  color: #0e6cc1;
-  transition: background-color 0.2s ease, color 0.2s ease; }
+  background-color: #0e6cc1;
+  color: white;
+  transition: background-color 0.2s ease-in-out; }
   button:hover {
-    background-color: #ff9500;
-    color: white; }
+    background-color: #ff9500; }
 
 input, textarea {
   padding: 0.5rem;
@@ -113,7 +111,8 @@ input, textarea {
   padding: 1rem 1.5rem; }
 
 #header-dummy {
-  height: 8rem; }
+  height: 7rem;
+  margin: 0; }
 
 .indent {
   margin-left: 0.5rem; }
@@ -128,6 +127,10 @@ input, textarea {
   border-radius: 0.125rem;
   padding: 0.125rem 0.5rem;
   margin: 0.25rem 0; }
+
+.title-block {
+  width: 60%;
+  padding: 1rem; }
 
 .portrait {
   position: relative;
@@ -149,9 +152,9 @@ input, textarea {
   background-color: #094b85;
   color: #80bbf0; }
   .dark h1 {
-    color: #ffca7e; }
+    color: #ff9500; }
   .dark h2, .dark h3, .dark h4 {
-    color: #ffca7e; }
+    color: #ffa72a; }
 
 .light {
   background-color: white;
@@ -163,11 +166,13 @@ input, textarea {
 
 header .title {
   font-family: "Montserrat";
-  font-size: 3rem; }
+  font-size: 3rem;
+  color: #094b85; }
 
 header .subtitle {
   font-family: "Hind";
-  font-size: 1.7rem; }
+  font-size: 1.7rem;
+  color: #54a0e4; }
 
 .anchor {
   position: relative;
@@ -186,41 +191,45 @@ header .subtitle {
   display: none; }
 
 .sticky {
-  position: fixed;
-  z-index: 999;
-  width: 80vw;
-  top: 0;
-  height: 5rem;
-  border-bottom: 0.2rem solid #0e6cc1;
-  transition: height 0.2s ease, border-bottom 0.2s ease; }
-  .sticky h1 {
+  border-bottom: 3px solid #0e6cc1;
+  transition: height 0.2s ease-in-out, border-bottom 0.2s ease-in-out; }
+  .sticky .title, .sticky .subtitle {
     display: inline-block;
-    color: #094b85;
-    font-size: 2rem;
-    transition: font-size 0.2s ease; }
-  .sticky h2 {
-    display: inline-block;
-    font-size: 1.2rem;
     transition: display 0.2s ease, font-size 0.2s ease; }
-  .sticky nav {
-    top: 0; }
+  .sticky .title {
+    font-size: 2rem; }
+  .sticky .subtitle {
+    font-size: 1rem; }
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  background-color: white; }
 
 .nav-menu {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  flex-wrap: nowrap;
+  min-width: 20rem;
   list-style: none;
   font-family: "Montserrat";
-  font-size: 1.1rem; }
+  font-size: 1.1rem;
+  padding: 0;
+  border-top: 0; }
   .nav-menu li {
-    background-color: none;
-    color: inherit;
     padding: 0.5rem;
     margin: 0 0.5rem;
-    transition: background-color 0.5s ease, color 0.5s ease; }
+    border-radius: 0.25rem;
+    color: #3087d5;
+    transition: background-color 0.5s ease, color 0.3s ease; }
     .nav-menu li:hover {
-      background-color: #ff9500;
-      color: gainsboro;
+      background-color: #3087d5;
+      color: white;
       cursor: pointer; }
 
 .shade, .col2, .col-3, .col-4 {
@@ -261,7 +270,7 @@ header .subtitle {
   justify-content: space-between;
   width: 48%;
   height: 14rem;
-  border: 0.1rem solid #ff9500;
+  border: 0.1rem solid #3087d5;
   overflow: hidden;
   margin-bottom: 1rem;
   cursor: pointer; }
@@ -281,6 +290,7 @@ header .subtitle {
     opacity: 0;
     padding: 1rem;
     background-color: #ff9500;
+    color: white;
     transition: opacity 0.2s ease; }
   .gallery-item div > * {
     color: white;
@@ -296,7 +306,8 @@ header .subtitle {
   height: 100%;
   display: none;
   background-color: rgba(0, 0, 0, 0.9);
-  z-index: 9998; }
+  z-index: 9998;
+  overflow: hidden; }
   .gallery-modal > div {
     position: relative;
     background-color: white;
@@ -323,7 +334,11 @@ header .subtitle {
     height: 40%;
     margin: 2rem;
     border: 0.1rem solid #094b85;
-    box-shadow: 0.5rem 0.5rem 0.5rem #80bbf0; }
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(125, 125, 125, 0.3); }
+  .gallery-image-container .full {
+    width: 100%; }
+  .gallery-image-container .third {
+    width: 26%; }
 
 .gallery-item-close {
   position: fixed;
@@ -381,7 +396,7 @@ footer {
   text-align: right;
   font-size: 0.8rem; }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 768px) {
   main {
     width: 100%;
     margin: 0;
@@ -394,11 +409,26 @@ footer {
     font-size: 1.5rem; }
 
   header {
-    height: 8rem;
-    position: fixed;
-    border: inherit; }
-    header i {
-      visibility: visible; }
+    width: 100%; }
+
+  .sticky .subtitle {
+    display: none; }
+
+  .sticky nav {
+    border-top: 3px solid #0e6cc1; }
+
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start; }
+
+  nav {
+    width: 100%; }
+
+  .title-block {
+    width: 80%; }
+
+  #hamburger {
+    visibility: visible; }
 
   section {
     margin: inherit 0;
@@ -409,7 +439,6 @@ footer {
 
   .section {
     width: 100%;
-    margin: 0;
     padding: 1rem; }
 
   #nav {
@@ -420,6 +449,9 @@ footer {
     padding: 0;
     background-color: white;
     z-index: 9999; }
+
+  nav {
+    display: none; }
 
   .shadow {
     display: none; }
@@ -437,12 +469,11 @@ footer {
       text-align: center;
       padding: 0.5rem;
       margin: 0;
-      border-bottom: 0.1rem solid gainsboro;
-      background-color: #ff9500;
-      color: gainsboro;
-      transition: color 0.5s ease; }
+      border-bottom: 0.1rem solid #80bbf0;
+      background-color: #094b85;
+      color: white; }
       .nav-menu li:hover {
-        color: white;
+        background-color: #0e6cc1;
         cursor: pointer; }
 
   .gallery-item {
@@ -458,24 +489,10 @@ footer {
 
   .gallery-image-container img {
     width: 100%;
-    height: 100%; } }
-@media screen and (max-width: 360px) {
-  header, #header-dummy {
-    height: 4rem; }
-
-  header .title {
-    font-size: 2rem; }
-
-  header .subtitle {
-    font-size: 1.3rem; } }
-@media screen and (max-width: 260px) {
-  header, #header-dummy {
-    height: 2.5rem; }
-
-  header .title {
-    font-size: 1.5rem; }
-
-  header .subtitle {
-    display: none; } }
+    height: auto; }
+  .gallery-image-container .full {
+    width: 100%; }
+  .gallery-image-container .third {
+    width: 100%; } }
 
 /*# sourceMappingURL=default.css.map */

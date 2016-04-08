@@ -21,7 +21,7 @@ $(document).ready(function(){
 });
 
 $(window).scroll(function() {
-  if ($(document).scrollTop() > 50) {
+  if ($(document).scrollTop() > 30) {
     $('header').addClass('sticky');
     //$('header').animate({height:'5rem'}, 1000);
   } else {
