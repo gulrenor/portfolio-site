@@ -1,37 +1,48 @@
 @import url(https://fonts.googleapis.com/css?family=Questrial|Crete+Round|Roboto:400,700|Oswald:400,700|Roboto+Slab:400,700|Nunito:400,700);
+@import url(https://fonts.googleapis.com/css?family=Hind|Bree+Serif|Patua+One|Sigmar+One|Rokkitt);
 * {
   box-sizing: border-box; }
 
 html {
-  font-size: 16px; }
+  font-size: 16px;
+  height: 100%; }
 
 body {
-  font-family: "Roboto Slab";
+  font-family: "Hind";
   color: #969696;
   background-color: white; }
 
 @media screen and (max-width: 900px) {
   html {
     font-size: 14px; } }
-h1, h2, h3 {
+h1, h2, h3, h4 {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: "Montserrat"; }
 
 h1 {
-  font-family: "Roboto";
+  font-family: "Montserrat";
   font-size: 4rem;
-  line-height: 3rem; }
+  line-height: 3rem;
+  font-weight: 700; }
 
 h2 {
-  font-family: "Roboto";
-  font-size: 2rem; }
+  font-family: "Montserrat";
+  font-size: 1.75rem;
+  font-weight: 400; }
 
 h3 {
-  font-size: 1.5rem; }
+  font-size: 1.25rem;
+  font-weight: 400; }
 
 a {
   color: inherit;
   text-decoration: none; }
+
+hr {
+  width: 100%;
+  border: 0;
+  border-bottom: 0.1rem solid; }
 
 figure, figcaption {
   margin: 0;
@@ -50,18 +61,25 @@ main {
 header {
   position: fixed;
   top: 0;
-  height: 8rem; }
+  height: 8rem;
+  width: inherit;
+  border-bottom: 0.5rem solid transparent;
+  transition: height 0.3s ease; }
   header i {
     position: absolute;
     right: 1rem;
     top: 0.5rem;
-    background-color: #323232;
-    color: gainsboro;
+    background-color: #094b85;
+    color: #ffca7e;
     padding: 0.75rem;
     visibility: hidden;
     transition: background-color 0.2s ease; }
     header i:hover {
-      background-color: #3264c8; }
+      background-color: #ff9500; }
+  header h1 {
+    transition: font-size 0.1s ease; }
+  header h2 {
+    transition: display 0.1s ease, font-size 0.1s ease; }
 
 nav {
   position: absolute;
@@ -69,11 +87,33 @@ nav {
   top: 1.3rem; }
 
 section {
-  margin: 2rem auto; }
+  margin: 2rem auto;
+  border-radius: 0.5rem; }
+
+form {
+  color: #094b85; }
+
+button {
+  border: 0;
+  padding: 0.5rem;
+  color: #0e6cc1;
+  transition: background-color 0.2s ease, color 0.2s ease; }
+  button:hover {
+    background-color: #ff9500;
+    color: white; }
+
+input, textarea {
+  padding: 0.5rem;
+  border: 0.2vw solid transparent;
+  margin-bottom: 1rem; }
+  input:focus, textarea:focus {
+    border: 0.2vw solid #ff9500; }
 
 .section {
-  padding: 1rem;
-  position: relative; }
+  padding: 1rem 1.5rem; }
+
+#header-dummy {
+  height: 8rem; }
 
 .indent {
   margin-left: 0.5rem; }
@@ -81,26 +121,53 @@ section {
 .right {
   float: right; }
 
+.skill-tag {
+  display: inline-block;
+  background-color: #ff9500;
+  color: white;
+  border-radius: 0.125rem;
+  padding: 0.125rem 0.5rem;
+  margin: 0.25rem 0; }
+
 .portrait {
-  width: 12.5rem;
   position: relative;
-  top: -4rem; }
+  width: 12.5rem;
+  max-width: 40vw;
+  clear: both;
+  border: 0.2rem solid #ffa72a;
+  background-color: #ffca7e;
+  border-radius: 50%;
+  margin: 0.5rem; }
+
+.clearfix:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both; }
 
 .dark {
-  background-color: #323232;
-  color: #969696; }
+  background-color: #094b85;
+  color: #80bbf0; }
   .dark h1 {
-    color: gainsboro; }
-  .dark h2 {
-    color: #c8c8c8; }
+    color: #ffca7e; }
+  .dark h2, .dark h3, .dark h4 {
+    color: #ffca7e; }
 
 .light {
   background-color: white;
-  color: #3c3c3c; }
+  color: #0e6cc1; }
   .light h1 {
-    color: #1e1e1e; }
-  .light h2 {
-    color: #505050; }
+    color: #094b85; }
+  .light h2, .light h3, .light h4 {
+    color: #ff9500; }
+
+header .title {
+  font-family: "Montserrat";
+  font-size: 3rem; }
+
+header .subtitle {
+  font-family: "Hind";
+  font-size: 1.7rem; }
 
 .anchor {
   position: relative;
@@ -120,42 +187,67 @@ section {
 
 .sticky {
   position: fixed;
+  z-index: 999;
   width: 80vw;
   top: 0;
   height: 5rem;
-  background-color: white;
-  color: #3c3c3c;
-  z-index: 999;
-  border-bottom: 0.25rem solid #1e1e1e; }
+  border-bottom: 0.2rem solid #0e6cc1;
+  transition: height 0.2s ease, border-bottom 0.2s ease; }
   .sticky h1 {
     display: inline-block;
-    color: #1e1e1e;
-    font-size: 2rem; }
+    color: #094b85;
+    font-size: 2rem;
+    transition: font-size 0.2s ease; }
   .sticky h2 {
     display: inline-block;
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    transition: display 0.2s ease, font-size 0.2s ease; }
   .sticky nav {
     top: 0; }
-  .sticky .shadow {
-    display: inherit; }
 
-.horizontal-menu {
+.nav-menu {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   list-style: none;
-  font-family: "Roboto";
+  font-family: "Montserrat";
   font-size: 1.1rem; }
-  .horizontal-menu li {
+  .nav-menu li {
     background-color: none;
     color: inherit;
     padding: 0.5rem;
     margin: 0 0.5rem;
     transition: background-color 0.5s ease, color 0.5s ease; }
-    .horizontal-menu li:hover {
-      background-color: #3264c8;
+    .nav-menu li:hover {
+      background-color: #ff9500;
       color: gainsboro;
       cursor: pointer; }
+
+.shade, .col2, .col-3, .col-4 {
+  background-color: rgba(0, 0, 0, 0.3); }
+
+.col2, .col-3, .col-4 {
+  padding: 1rem; }
+
+.col-2 {
+  width: 48%; }
+
+.col-3 {
+  width: 28%; }
+
+.col-4 {
+  width: 23%; }
+
+#skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%; }
+
+.bullets {
+  list-style: disc; }
 
 .gallery {
   display: flex;
@@ -166,10 +258,10 @@ section {
 
 .gallery-item {
   position: relative;
-  justify-content: center;
-  width: 24rem;
+  justify-content: space-between;
+  width: 48%;
   height: 14rem;
-  border: 0.1rem solid black;
+  border: 0.1rem solid #ff9500;
   overflow: hidden;
   margin-bottom: 1rem;
   cursor: pointer; }
@@ -188,7 +280,7 @@ section {
     justify-content: center;
     opacity: 0;
     padding: 1rem;
-    background-color: #3264c8;
+    background-color: #ff9500;
     transition: opacity 0.2s ease; }
   .gallery-item div > * {
     color: white;
@@ -230,8 +322,8 @@ section {
     width: 40%;
     height: 40%;
     margin: 2rem;
-    border: 0.1rem solid #323232;
-    box-shadow: 0.5rem 0.5rem 0.5rem #969696; }
+    border: 0.1rem solid #094b85;
+    box-shadow: 0.5rem 0.5rem 0.5rem #80bbf0; }
 
 .gallery-item-close {
   position: fixed;
@@ -242,36 +334,47 @@ section {
   cursor: pointer;
   transition: color 0.5s ease; }
   .gallery-item-close:hover {
-    color: #3264c8; }
+    color: #ff9500; }
 
 .contact-form-container {
+  width: 100%;
   display: flex;
-  flex-direction: row; }
-  .contact-form-container div {
-    width: 50%; }
-  .contact-form-container:nth-child(2) i {
-    margin: 0.5rem 1.5rem; }
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1rem 0; }
+  .contact-form-container #contact-form {
+    width: 75%; }
+  .contact-form-container #social-buttons-container {
+    width: 25%; }
 
 #contact-form {
-  display: flex;
-  flex-direction: column; }
-  #contact-form > * {
-    margin: 0.5rem; }
-  #contact-form input, #contact-form textarea {
-    padding: 0.5rem;
-    border: 0.2vw solid transparent; }
-    #contact-form input:focus, #contact-form textarea:focus {
-      border: 0.2vw solid #3264c8; }
+  display: inherit;
+  flex-wrap: wrap;
+  justify-content: inherit; }
+  #contact-form > div {
+    width: 48%;
+    display: flex;
+    flex-direction: column; }
+  #contact-form input {
+    height: 4rem; }
+  #contact-form textarea {
+    height: 9rem; }
   #contact-form button {
-    width: 40%;
-    border: 0;
-    padding: 0.5rem;
-    color: #3c3c3c;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    width: 100%;
     align-self: center; }
-    #contact-form button:hover {
-      background-color: #3264c8;
-      color: white; }
+
+#social-buttons-container {
+  padding: 0 2rem; }
+  #social-buttons-container > a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: color 0.2s ease-in-out; }
+    #social-buttons-container > a:hover {
+      color: #ff9500; }
+    #social-buttons-container > a i {
+      margin: 0 0.5rem; }
 
 footer {
   min-height: 20vw;
@@ -292,54 +395,54 @@ footer {
 
   header {
     height: 8rem;
-    position: fixed; }
+    position: fixed;
+    border: inherit; }
     header i {
       visibility: visible; }
 
   section {
-    margin: inherit 0; }
+    margin: inherit 0;
+    border-radius: 0; }
 
   .indent {
     margin-left: 0; }
-
-  nav {
-    display: none;
-    position: fixed;
-    top: 8rem;
-    left: 0;
-    width: 100vw;
-    padding: 0;
-    margin: 0;
-    background-color: white;
-    z-index: 9999; }
 
   .section {
     width: 100%;
     margin: 0;
     padding: 1rem; }
 
+  #nav {
+    display: none;
+    position: relative;
+    width: 100vw;
+    margin: -1rem;
+    padding: 0;
+    background-color: white;
+    z-index: 9999; }
+
   .shadow {
     display: none; }
 
-  .horizontal-menu {
+  .nav-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     list-style: none;
-    font-family: "Roboto";
+    font-family: "Montserrat";
     font-size: 1.1rem;
+    margin: 0;
     padding: 0; }
-    .horizontal-menu li {
+    .nav-menu li {
       text-align: center;
       padding: 0.5rem;
       margin: 0;
-      border-bottom: 0.1rem solid #505050;
-      background-color: none;
-      color: inherit;
-      transition: background-color 0.5s ease, color 0.5s ease; }
-      .horizontal-menu li:hover {
-        background-color: #3264c8;
-        color: gainsboro;
+      border-bottom: 0.1rem solid gainsboro;
+      background-color: #ff9500;
+      color: gainsboro;
+      transition: color 0.5s ease; }
+      .nav-menu li:hover {
+        color: white;
         cursor: pointer; }
 
   .gallery-item {
@@ -356,5 +459,23 @@ footer {
   .gallery-image-container img {
     width: 100%;
     height: 100%; } }
+@media screen and (max-width: 360px) {
+  header, #header-dummy {
+    height: 4rem; }
+
+  header .title {
+    font-size: 2rem; }
+
+  header .subtitle {
+    font-size: 1.3rem; } }
+@media screen and (max-width: 260px) {
+  header, #header-dummy {
+    height: 2.5rem; }
+
+  header .title {
+    font-size: 1.5rem; }
+
+  header .subtitle {
+    display: none; } }
 
 /*# sourceMappingURL=default.css.map */

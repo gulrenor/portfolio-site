@@ -1,6 +1,6 @@
 $(document).ready(function(){
   // Add smooth scrolling to all links
-  $("nav a").on('click', function(event) {
+  $("header a").on('click', function(event) {
 
     // Prevent default anchor click behavior
     event.preventDefault();
@@ -23,7 +23,7 @@ $(document).ready(function(){
 $(window).scroll(function() {
   if ($(document).scrollTop() > 50) {
     $('header').addClass('sticky');
-    console.log('what');
+    //$('header').animate({height:'5rem'}, 1000);
   } else {
     $('header').removeClass('sticky');
   }
