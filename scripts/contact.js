@@ -24,15 +24,15 @@ $(function() {
         $('#contact-comment').val('');
       })
 
-      //display error
-      .fail(function(data) {
-        $(formMessages).removeClass('success');
-        $(formMessages).addClass('error');
-        if (data.responseText !== '') {
-          $(formMessages).text(data.responseText);
-        } else {
-          $(formMessages).text('An error occured.');
-        }
-      });
+    //display error
+    .fail(function(data) {
+      $(formMessages).removeClass('success');
+      $(formMessages).addClass('error');
+      if (data.responseText !== '') {
+        $(formMessages).text(data.responseText);
+      } else {
+        $(formMessages).text('An error occured.');
+      }
+    });
   });
 });
