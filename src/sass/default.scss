@@ -578,10 +578,26 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 0 2rem;
   width: 25%;
 
   a {
     width: 45%;
+  }
+
+  > a {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    transition: color .2s ease-in-out;
+
+    &:hover {
+      color: $rgba-complement-3;
+    }
+
+    i {
+      margin: 0 .5rem;
+    }
   }
 }
 
@@ -607,25 +623,6 @@ textarea {
   button {
     align-self: center;
     width: 100%;
-  }
-}
-
-.social-buttons-container {
-  padding: 0 2rem;
-
-  > a {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    transition: color .2s ease-in-out;
-
-    &:hover {
-      color: $rgba-complement-3;
-    }
-
-    i {
-      margin: 0 .5rem;
-    }
   }
 }
 
