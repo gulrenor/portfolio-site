@@ -482,7 +482,7 @@ textarea {
 .section {
   padding: 1rem 1.5rem; }
 
-#header-dummy {
+.header-dummy {
   height: 7rem;
   margin: 0; }
 
@@ -626,18 +626,6 @@ textarea {
 .col-4 {
   width: 23%; }
 
-#skills {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  padding: 1rem;
-  width: 100%; }
-
 .bullets {
   list-style: disc; }
 
@@ -759,10 +747,10 @@ textarea {
       justify-content: space-between;
   margin: 1rem 0;
   width: 100%; }
-  .contact-form-container #contact-form {
+  .contact-form-container .contact-form {
     width: 75%; }
 
-#social-buttons-container {
+.social-buttons-container {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -770,34 +758,34 @@ textarea {
   -ms-flex-pack: justify;
       justify-content: space-between;
   width: 25%; }
-  #social-buttons-container a {
+  .social-buttons-container a {
     width: 45%; }
 
-#contact-form {
+.contact-form {
   display: inherit;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -ms-flex-pack: inherit;
       justify-content: inherit; }
-  #contact-form > div {
+  .contact-form > div {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column;
     width: 48%; }
-  #contact-form input {
+  .contact-form input {
     height: 4rem; }
-  #contact-form textarea {
+  .contact-form textarea {
     height: 9rem; }
-  #contact-form button {
+  .contact-form button {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
     width: 100%; }
 
-#social-buttons-container {
+.social-buttons-container {
   padding: 0 2rem; }
-  #social-buttons-container > a {
+  .social-buttons-container > a {
     -ms-flex-align: center;
         align-items: center;
     display: -ms-flexbox;
@@ -805,9 +793,9 @@ textarea {
     -ms-flex-direction: row;
         flex-direction: row;
     transition: color .2s ease-in-out; }
-    #social-buttons-container > a:hover {
+    .social-buttons-container > a:hover {
       color: #ff9500; }
-    #social-buttons-container > a i {
+    .social-buttons-container > a i {
       margin: 0 .5rem; }
 
 footer {
@@ -816,7 +804,7 @@ footer {
   text-align: right; }
 
 @media screen and (max-width: 1280px) {
-  #social-buttons-container {
+  .social-buttons-container {
     -ms-flex-direction: column;
         flex-direction: column; } }
 
@@ -848,7 +836,7 @@ footer {
     width: 100%; }
   .title-block {
     width: 80%; }
-  #hamburger {
+  .hamburger {
     visibility: visible; }
   section {
     border-radius: 0;
@@ -858,14 +846,6 @@ footer {
   .section {
     padding: 1rem;
     width: 100%; }
-  #nav {
-    background-color: white;
-    display: none;
-    margin: -1rem;
-    padding: 0;
-    position: relative;
-    width: 100vw;
-    z-index: 9999; }
   nav {
     display: none; }
   .shadow {
@@ -915,12 +895,12 @@ footer {
   .contact-form-container {
     -ms-flex-direction: column;
         flex-direction: column; }
-    .contact-form-container #contact-form {
+    .contact-form-container .contact-form {
       width: 100%; }
-    .contact-form-container #social-buttons-container {
+    .contact-form-container .social-buttons-container {
       margin-top: 2rem;
       width: 100%; }
-  #contact-form > div {
+  .contact-form > div {
     -ms-flex-direction: column;
         flex-direction: column;
     width: 100%; }
