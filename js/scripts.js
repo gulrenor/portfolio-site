@@ -82,7 +82,7 @@ $(document).ready(function() {
     }
   })
 
-  $('#hamburger').click(function() {
+  $('.hamburger').click(function() {
     if (checkBreakpoint()) {
       console.log('clicked small');
       $('nav').toggle(300);
