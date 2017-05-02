@@ -904,3 +904,7 @@ footer {
     width: 100%; }
   footer {
     margin-right: 1.5rem; } }
+
+.parsley-errors-list {
+  background-color: #b43232;
+  color: white; }

@@ -1,0 +1,110 @@
+- // Variables
+- var pageTitle = 'Tim Harrison | Web Designer &amp; Developer';
+- var personalNarrative = "I'm a versatile, creative technology professional with a wide range of skills including web development and design, graphic design, and information technology experience. I have a strong knowledge of front and back-end development and design, and I utilize emerging technologies and frameworks to improve user experience on the web. I provide a commitment to quality and detail, and I have strong team skills. I'm seeking a dynamic, collaborative environment to further my skills and grow professionally.";
+
+include _skills
+include _social
+include _projects
+
+- // Mixins
+
+mixin gallery-item(project)
+  a.gallery-item
+    img(src=project.thumb alt=project.title)
+    div
+      h2= project.title
+      p= project.description
+  article.gallery-modal
+    div
+      i.fa.fa-times.fa-3x.gallery-item-close
+      h2= project.title
+      p= project.narrative
+      p
+        a(href=project.projectURL)= project.projectURL
+          i.fa.fa-external-link
+      div.gallery-image-container
+        for image in project.images
+          +gallery-images(image)
+        
+mixin gallery-images(image)
+  img(class=image.size src=image.imageURL alt=image.imageAlt)
+      
+mixin social(network)
+  a(href=network.url)
+    i.fa.fa-2x(class=network.faIcon)
+    p= network.name
+
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+    link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+    link(rel="stylesheet" href="css/default.min.css")
+    
+  body#top
+    main
+      header
+        div.header-container
+          div.title-block
+            h1.title Tim Harrison
+            h2.subtitle Web Designer &amp; Developer
+          
+          i.hamburger.fa.fa-bars.fa-2x
+          nav.horizontal-nav
+            ul.nav-menu
+              li
+                a(href="#about") About
+              li
+                a(href="#work") Work
+              li
+                a(href="#contact") Contact Me
+          
+          div.shadow
+      
+      div.header-dummy
+      
+      a#about.anchor
+      section.section.dark
+        div.clearfix
+          img.portrait.right(src="images/about/tim-silo.png" alt="Timothy Harrison Portrait")
+          h2 A little bit about myself.
+          p= personalNarrative
+          h4 My Skills
+          for skill in arrSkills
+            span.skill-tag= skill
+      
+      a#work.anchor
+      section.light
+        div.gallery
+          
+          for project in arrProjects
+            +gallery-item(project)
+        
+      a#contact.anchor
+      section.section.dark
+        h2 Get In Touch.
+        span Send me a message, or connect with me on social networks.
+        
+        div.contact-form-container
+          div#form-messages
+          form.contact-form(action="mail/mail.php" method="post")
+            div
+              input#contact-name(name="contact-name" placeholder="Your Name" type="text" required)
+              input#contact-email(name="contact-email" placeholder="Your Email" type="email" required)
+            div
+              textarea#contact-comment(name="contact-comment" rows="3" placeholder="Your Message" required)
+              button#contact-submit Submit
+
+          div.social-buttons-container
+            for network in arrSocial
+              +social(network)
+
+    footer 
+      span &copy; 
+      span#copyright-year 2016 &nbsp;
+      span Tim Harrison
+
+  script(src="https://code.jquery.com/jquery-1.12.0.min.js")
+  script(src="js/scripts.min.js" type="text/javascript")
