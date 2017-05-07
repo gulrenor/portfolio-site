@@ -44,6 +44,9 @@ $(function() {
   });
 });
 
+var dateNow = new Date();
+var yearNow = dateNow.getFullYear();
+
 $(".gallery-item").click(
   function() {
     $(this).next().show();

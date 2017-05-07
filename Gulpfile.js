@@ -18,35 +18,6 @@ var concat = require('gulp-concat');
 // Pug
 var pug = require('gulp-pug');
 
-// Hugo
-var exec = require('child_process').exec;
-var bg = require('gulp-bg');
-
-// Hugo config
-var hugoTheme = 'kal';
-var dirSass_In = 'src/sass/**/*.scss';
-var dirCSS_Out = 'css/';
-var dirJS_In = 'src/js/**/*.js';
-var dirJS_Out = 'js/';
-var dirPug_In = 'src/pug/**/!(_)*.pug'; // Prevents _includes
-var dirHTML_Out = '';
-
-// Hugo
-gulp.task('hugo-build', function(callback) {
-  exec('hugo', function(err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    callback(err);
-  });
-});
-gulp.task('hugo-server', function(callback) {
-  bg('hugo server', function(err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    callback(err);
-  });
-});
-
 // S/CSS task
 gulp.task('styles', function() {
   gulp.src(dirSass_In)
@@ -74,7 +45,7 @@ gulp.task('scripts', function() {
 gulp.task('html', function() {
   gulp.src(dirPug_In)
     .pipe(plumber())
-    .pipe(pug())
+    .pipe(pug({ pretty: true }))
     .pipe(gulp.dest(dirHTML_Out));
 })
 
@@ -83,7 +54,6 @@ gulp.task('html', function() {
 // Watch
 gulp.task('default', function() {
   livereload.listen();
-  //gulp.watch(['hugo-server']);
   gulp.watch(dirSass_In, ['styles']);
   gulp.watch(dirJS_In, ['scripts']);
   gulp.watch(dirPug_In, ['html']);

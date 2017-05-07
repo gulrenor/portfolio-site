@@ -497,7 +497,7 @@ textarea {
   border-radius: .125rem;
   color: white;
   display: inline-block;
-  margin: .25rem 0;
+  margin: .25rem .25rem .25rem 0;
   padding: .125rem .5rem; }
 
 .title-block {

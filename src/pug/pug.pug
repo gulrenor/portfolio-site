@@ -25,10 +25,10 @@ mixin gallery-item(project)
       div.gallery-image-container
         for image in project.images
           +gallery-images(image)
-        
+
 mixin gallery-images(image)
   img(class=image.size src=image.imageURL alt=image.imageAlt)
-      
+
 mixin social(network)
   a(href=network.url)
     i.fa.fa-2x(class=network.faIcon)
@@ -42,7 +42,7 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
     link(rel="stylesheet" href="css/default.min.css")
-    
+
   body#top
     main
       header
@@ -50,7 +50,7 @@ html(lang="en")
           div.title-block
             h1.title Tim Harrison
             h2.subtitle Web Designer &amp; Developer
-          
+
           i.hamburger.fa.fa-bars.fa-2x
           nav.horizontal-nav
             ul.nav-menu
@@ -60,11 +60,11 @@ html(lang="en")
                 a(href="#work") Work
               li
                 a(href="#contact") Contact Me
-          
+
           div.shadow
-      
+
       div.header-dummy
-      
+
       a#about.anchor
       section.section.dark
         div.clearfix
@@ -72,21 +72,22 @@ html(lang="en")
           h2 A little bit about myself.
           p= personalNarrative
           h4 My Skills
-          for skill in arrSkills
-            span.skill-tag= skill
-      
+          .skills-container
+            for skill in arrSkills
+              span.skill-tag= skill 
+
       a#work.anchor
       section.light
         div.gallery
-          
+
           for project in arrProjects
             +gallery-item(project)
-        
+
       a#contact.anchor
       section.section.dark
         h2 Get In Touch.
         span Send me a message, or connect with me on social networks.
-        
+
         div.contact-form-container
           div#form-messages
           form.contact-form(action="mail/mail.php" method="post")
@@ -103,8 +104,8 @@ html(lang="en")
 
     footer 
       span &copy; 
-      span#copyright-year 2016 &nbsp;
-      span Tim Harrison
+      span#copyright-year=yearNow
+      span &nbsp;Tim Harrison
 
   script(src="https://code.jquery.com/jquery-1.12.0.min.js")
   script(src="js/scripts.min.js" type="text/javascript")
