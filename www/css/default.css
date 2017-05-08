@@ -658,7 +658,8 @@ textarea {
     top: 0;
     width: 100%; }
   .gallery-item img {
-    object-fit: cover; }
+    object-fit: cover;
+    object-position: top; }
   .gallery-item div {
     background-color: #ff9500;
     color: white;
