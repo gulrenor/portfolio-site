@@ -94,3 +94,4 @@ jspm_packages
 # End of https://www.gitignore.io/api/windows,adobe,hugo,sass,node
 
 auth.php
+recaptcha_auth.php

@@ -1,4 +1,6 @@
 <?php
+
+  require_once 'recaptchalib.php';
   
   function getUserIP(){
   // For proxy users
