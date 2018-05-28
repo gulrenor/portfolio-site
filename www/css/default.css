@@ -406,8 +406,8 @@ hr {
   border-bottom: .1rem solid;
   width: 100%; }
 
-figure,
-figcaption {
+figcaption,
+figure {
   margin: 0;
   padding: 0; }
 
@@ -422,7 +422,7 @@ main {
   width: 80vw; }
 
 header {
-  border-bottom: 3px solid transparent;
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
   position: fixed;
   top: 0;
   transition: height .2s ease-in-out, border-bottom .2s ease-in-out;
@@ -472,7 +472,7 @@ button {
 
 input,
 textarea {
-  border: 0.2vw solid transparent;
+  border: 0.2vw solid rgba(0, 0, 0, 0);
   margin-bottom: 1rem;
   padding: .5rem; }
   input:focus,
@@ -557,8 +557,8 @@ textarea {
 .sticky {
   border-bottom: 3px solid #0e6cc1;
   transition: height .2s ease-in-out, border-bottom .2s ease-in-out; }
-  .sticky .title,
-  .sticky .subtitle {
+  .sticky .subtitle,
+  .sticky .title {
     display: inline-block;
     transition: display .2s ease, font-size .2s ease; }
   .sticky .title {
@@ -607,14 +607,14 @@ textarea {
       color: white;
       cursor: pointer; }
 
-.col2,
 .col-3,
-.col-4 {
+.col-4,
+.col2 {
   background-color: rgba(0, 0, 0, 0.3); }
 
-.col2,
 .col-3,
-.col-4 {
+.col-4,
+.col2 {
   padding: 1rem; }
 
 .col-2 {
@@ -738,6 +738,8 @@ textarea {
     color: #ff9500; }
 
 .contact-form-container {
+  -ms-flex-align: center;
+      align-items: center;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: row;
@@ -780,7 +782,8 @@ textarea {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -ms-flex-pack: inherit;
-      justify-content: inherit; }
+      justify-content: inherit;
+  transition: width .2s ease-in-out; }
   .contact-form > div {
     display: -ms-flexbox;
     display: flex;
@@ -796,6 +799,12 @@ textarea {
         -ms-grid-row-align: center;
         align-self: center;
     width: 100%; }
+
+.parsley-success {
+  border: 2px solid green; }
+
+.parsley-error {
+  border: 2px solid red; }
 
 footer {
   font-size: .8rem;
@@ -906,6 +915,7 @@ footer {
   footer {
     margin-right: 1.5rem; } }
 
-.parsley-errors-list {
+.parsley-errors-list,
+.error {
   background-color: #b43232;
   color: white; }

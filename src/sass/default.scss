@@ -1,10 +1,8 @@
 @import 'normalize';
 @import 'palette';
 @import 'typography';
-
 $gallery-modal-height: 80%;
 $gallery-modal-width: 80%;
-
 $header-height: 7rem;
 
 * {
@@ -21,16 +19,12 @@ body {
   color: $rgba-primary-4;
   font-family: $body-font;
 }
-
-
 // Breakpoints
-
 @media screen and (max-width: 970px) {
   html {
     font-size: 14px;
   }
 }
-
 @media screen and (max-width: 360px) {
   html {
     font-size: 12px;
@@ -75,8 +69,8 @@ hr {
   width: 100%;
 }
 
-figure,
-figcaption {
+figcaption,
+figure {
   margin: 0;
   padding: 0;
 }
@@ -272,8 +266,8 @@ textarea {
   border-bottom: 3px solid $rgba-primary-3;
   transition: height .2s ease-in-out, border-bottom .2s ease-in-out;
 
-  .title,
-  .subtitle {
+  .subtitle,
+  .title {
     display: inline-block;
     transition: display .2s ease, font-size .2s ease;
   }
@@ -328,9 +322,9 @@ textarea {
   background-color: $shade;
 }
 
-.col2,
 .col-3,
-.col-4 {
+.col-4,
+.col2 {
   @extend %shade;
   padding: 1rem;
 }
@@ -369,7 +363,6 @@ textarea {
   position: relative;
   width: 48%;
   //width: 24rem;
-
   > * {
     height: 100%;
     left: 0;
@@ -475,6 +468,7 @@ textarea {
 }
 
 .contact-form-container {
+  align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -518,6 +512,7 @@ textarea {
   display: inherit;
   flex-wrap: wrap;
   justify-content: inherit;
+  transition: width .2s ease-in-out;
 
   > div {
     display: flex;
@@ -539,27 +534,29 @@ textarea {
   }
 }
 
+.parsley-success {
+  border: 2px solid green;
+}
+
+.parsley-error {
+  border: 2px solid red;
+}
+
 footer {
   font-size: .8rem;
   min-height: 20vw;
   text-align: right;
-
 }
-
 @media screen and (max-width: 1280px) {
   .social-buttons-container {
     flex-direction: column;
   }
 }
-
 @media screen and (min-width: 769px) {
   nav {
     display: inherit;
   }
 }
-
-
-
 ////////////////////////////////////
 ////////////////////////////////////
 ////////////////////////////////////
@@ -671,7 +668,6 @@ footer {
   }
 
   .gallery-modal {
-
     > div {
       height: 95%;
       top: 2.5%;
@@ -680,7 +676,6 @@ footer {
   }
 
   .gallery-image-container {
-
     img {
       height: auto;
       width: 100%;
@@ -720,7 +715,8 @@ footer {
   }
 }
 
-.parsley-errors-list {
+.parsley-errors-list,
+.error {
   background-color: $error;
   color: $white;
 }
