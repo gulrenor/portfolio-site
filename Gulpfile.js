@@ -1,7 +1,8 @@
 //Gulpfile.js
 
 // Common
-var gulp = require('gulp');
+var gulp = require('gulp')
+var connect = require('gulp-connect-php');
 var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
@@ -76,15 +77,28 @@ gulp.task('html', function() {
     .pipe(plumber())
     .pipe(pug({ pretty: true }))
     .pipe(gulp.dest(dirHTML_Out));
+    // .pipe(connect.reload());
 })
+
+// PHP Connect server
+gulp.task('connect', function() {
+  connect.server({
+    base: dirHTML_Out,
+    root: dirHTML_Out,
+    port: 8080,
+    // livereload: true,
+    debug: true
+  });
+});
 
 //TODO: Add SVG minify task
 
-// Watch
-gulp.task('default', function() {
-  livereload.listen();
-  //gulp.watch(['hugo-server']);
+gulp.task('watch', function() {
   gulp.watch(dirSass_In, ['styles']);
   gulp.watch(dirJS_In, ['scripts']);
   gulp.watch(dirPug_In, ['html']);
+  // gulp.watch(['hugo-server']);
 });
+
+// Watch
+gulp.task('default', ['connect', 'watch']);
