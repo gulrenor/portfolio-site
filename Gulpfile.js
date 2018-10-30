@@ -5,6 +5,8 @@ var gulp = require('gulp');
 var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
+var connect = require('gulp-connect');
+
 
 // S/CSS variables
 var sass = require('gulp-sass');
@@ -31,6 +33,21 @@ var dirJS_Out = 'www/js/';
 var dirPug_In = 'src/pug/**/!(_)*.pug'; // Prevents _includes
 var dirHTML_Out = 'www/';
 
+// local server
+gulp.task('connect', function () {
+  connect.server({
+    root: 'www',
+    livereload: true
+  });
+});
+
+// LiveReload
+gulp.task('livereload', function () {
+  gulp.src(allSrc)
+    .pipe(connect.reload());
+});
+
+
 // Hugo
 gulp.task('hugo-build', function(callback) {
   exec('hugo', function(err, stdout, stderr) {
@@ -56,7 +73,8 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(dirCSS_Out))
     .pipe(rename({ suffix: '.min' }))
     .pipe(cssnano())
-    .pipe(gulp.dest(dirCSS_Out));
+    .pipe(gulp.dest(dirCSS_Out))
+    .pipe(connect.reload());
 });
 
 // JS task
@@ -67,7 +85,8 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest(dirJS_Out))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
-    .pipe(gulp.dest(dirJS_Out));
+    .pipe(gulp.dest(dirJS_Out))
+    .pipe(connect.reload());
 });
 
 // Pug task
@@ -75,16 +94,20 @@ gulp.task('html', function() {
   gulp.src(dirPug_In)
     .pipe(plumber())
     .pipe(pug({ pretty: true }))
-    .pipe(gulp.dest(dirHTML_Out));
+    .pipe(gulp.dest(dirHTML_Out))
+    .pipe(connect.reload());
 })
 
 //TODO: Add SVG minify task
 
 // Watch
-gulp.task('default', function() {
-  livereload.listen();
+gulp.task('watch', function () {
+  // gulp.watch(allSources, ['livereload']);
   //gulp.watch(['hugo-server']);
   gulp.watch(dirSass_In, ['styles']);
   gulp.watch(dirJS_In, ['scripts']);
   gulp.watch(dirPug_In, ['html']);
 });
+
+// Go
+gulp.task('default', ['connect', 'watch']);

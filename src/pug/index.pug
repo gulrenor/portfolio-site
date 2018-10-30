@@ -16,12 +16,12 @@ mixin gallery-item(project)
       p= project.description
   article.gallery-modal
     div
-      i.fa.fa-times.fa-3x.gallery-item-close
+      i.fas.fa-times.fa-3x.gallery-item-close
       h2= project.title
       p= project.narrative
       p
         a(href=project.projectURL)= project.projectURL
-          i.fa.fa-external-link
+          i.fas.fa-external-link
       div.gallery-image-container
         for image in project.images
           +gallery-images(image)
@@ -31,7 +31,7 @@ mixin gallery-images(image)
 
 mixin social(network)
   a(href=network.url target="_blank")
-    i.fa.fa-2x(class=network.faIcon)
+    i.fab.fa-2x(class=network.faIcon)
     p= network.name
 
 doctype html
@@ -40,7 +40,7 @@ html(lang="en")
     title= pageTitle
     link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
-    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+    link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous")
     link(rel="stylesheet" href="css/default.min.css")
 
   body#top
