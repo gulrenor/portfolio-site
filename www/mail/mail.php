@@ -21,14 +21,11 @@
     
     $context = stream_context_create($options);
     $verify = file_get_contents($url, false, $context);
-    // var_dump($_POST);
     
     $recaptcha = json_decode($verify);
-    // var_dump($recaptcha['error-codes']);
     if ($recaptcha->success==true) {
       return true;
     } else if ($recaptcha->success==false) {
-      echo 'its false';
       return false;
     }
   }
