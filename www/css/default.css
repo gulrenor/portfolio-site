@@ -567,32 +567,22 @@ textarea {
     font-size: 1rem; }
 
 .header-container {
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -ms-flex-align: center;
-      align-items: center;
+  align-content: center;
+  align-items: center;
   background-color: white;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -ms-flex-pack: justify;
-      justify-content: space-between; }
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between; }
 
 .nav-menu {
   border-top: 0;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
   font-family: "Montserrat";
   font-size: 1.1rem;
-  -ms-flex-pack: end;
-      justify-content: flex-end;
+  justify-content: flex-end;
   list-style: none;
   min-width: 20rem;
   padding: 0; }
@@ -630,22 +620,17 @@ textarea {
   list-style: disc; }
 
 .gallery {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
   width: 100%; }
 
 .gallery-item {
   border: 0.1rem solid #3087d5;
   cursor: pointer;
   height: 14rem;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+  justify-content: space-between;
   margin-bottom: 1rem;
   overflow: hidden;
   position: relative;
@@ -663,12 +648,9 @@ textarea {
   .gallery-item div {
     background-color: #ff9500;
     color: white;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    -ms-flex-pack: center;
-        justify-content: center;
+    flex-direction: column;
+    justify-content: center;
     opacity: 0;
     padding: 1rem;
     transition: opacity .2s ease; }
@@ -702,16 +684,11 @@ textarea {
     width: 80%; }
 
 .gallery-image-container {
-  -ms-flex-align: center;
-      align-items: center;
-  display: -ms-flexbox;
+  align-items: center;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: center;
-      justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 100%; }
   .gallery-image-container img {
     border: 0.1rem solid #094b85;
@@ -738,39 +715,28 @@ textarea {
     color: #ff9500; }
 
 .contact-form-container {
-  -ms-flex-align: center;
-      align-items: center;
-  display: -ms-flexbox;
+  align-items: center;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 1rem 0;
   width: 100%; }
   .contact-form-container .contact-form {
     width: 75%; }
 
 .social-buttons-container {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-between;
   padding: 0 2rem;
   width: 25%; }
   .social-buttons-container a {
     width: 45%; }
   .social-buttons-container > a {
-    -ms-flex-align: center;
-        align-items: center;
-    display: -ms-flexbox;
+    align-items: center;
     display: flex;
-    -ms-flex-direction: row;
-        flex-direction: row;
+    flex-direction: row;
     transition: color .2s ease-in-out; }
     .social-buttons-container > a:hover {
       color: #ff9500; }
@@ -779,25 +745,19 @@ textarea {
 
 .contact-form {
   display: inherit;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: inherit;
-      justify-content: inherit;
+  flex-wrap: wrap;
+  justify-content: inherit;
   transition: width .2s ease-in-out; }
   .contact-form > div {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
+    flex-direction: column;
     width: 48%; }
   .contact-form input {
     height: 4rem; }
   .contact-form textarea {
     height: 9rem; }
   .contact-form button {
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    align-self: center;
     width: 100%; }
 
 .parsley-success {
@@ -813,8 +773,7 @@ footer {
 
 @media screen and (max-width: 1280px) {
   .social-buttons-container {
-    -ms-flex-direction: column;
-        flex-direction: column; } }
+    flex-direction: column; } }
 
 @media screen and (min-width: 769px) {
   nav {
@@ -836,10 +795,8 @@ footer {
   .sticky nav {
     border-top: 3px solid #0e6cc1; }
   .header-container {
-    -ms-flex-align: start;
-        align-items: flex-start;
-    -ms-flex-direction: column;
-        flex-direction: column; }
+    align-items: flex-start;
+    flex-direction: column; }
   nav {
     width: 100%; }
   .title-block {
@@ -859,14 +816,11 @@ footer {
   .shadow {
     display: none; }
   .nav-menu {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
+    flex-direction: column;
     font-family: "Montserrat";
     font-size: 1.1rem;
-    -ms-flex-pack: center;
-        justify-content: center;
+    justify-content: center;
     line-height: 3rem;
     list-style: none;
     margin: 0;
@@ -901,16 +855,14 @@ footer {
   .gallery-image-container .third {
     width: 100%; }
   .contact-form-container {
-    -ms-flex-direction: column;
-        flex-direction: column; }
+    flex-direction: column; }
     .contact-form-container .contact-form {
       width: 100%; }
     .contact-form-container .social-buttons-container {
       margin-top: 2rem;
       width: 100%; }
   .contact-form > div {
-    -ms-flex-direction: column;
-        flex-direction: column;
+    flex-direction: column;
     width: 100%; }
   footer {
     margin-right: 1.5rem; } }
@@ -919,3 +871,13 @@ footer {
 .error {
   background-color: #b43232;
   color: white; }
+
+.bees {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+  background-color: pink; }
