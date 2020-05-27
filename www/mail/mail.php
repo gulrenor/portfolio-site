@@ -1,13 +1,8 @@
 <?php
 
-  // Test
-  // echo "IP=" . $ip;
-  // // print_r($_POST);
-  // if (checkHoneypot()) {
-  //   echo "it returned true";
-  // } else {
-  //   echo "it returned false?";
-  // }
+  $contactname = $_POST['contact-name6LcK'];
+  echo 'we got this ' . $contactname;
+  exit('ok quitting');
 
   function recaptchav3() {
     // Make sure the form has been submitted
@@ -129,12 +124,14 @@
   $content .= "<tr><td colspan=\"2\"><span>" . $contactcomment . "</span></td></tr>";
   $content .= "<tr><td><span>Honeypot Status</span></td><td><span>" . $honeypot . "</span></td></tr></table>";
 
-  // // Send the email
-  // if (recaptchav3()) {
-  //   mail($to,$subject,$content,$headers) or die('There was an error sending mail.');
-  //   echo 'Thanks, your message has been sent!';
-  // } else {
-  //   echo 'There was an error, please try again';
-  // }
+  // Send the email
+  if (recaptchav3()) {
+    mail($to,$subject,$content,$headers) or die('There was an error sending mail.');
+    echo 'Thanks, your message has been sent!';
+  } else {
+    echo 'There was an error, please try again';
+  }
+  echo 'Thanks, your message has been sent (but not really!)';
+  print_r($content);
 
 ?>

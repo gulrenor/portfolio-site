@@ -90,7 +90,7 @@ html(lang="en")
         span Send me a message, or connect with me on social networks.
 
         div.contact-form-container
-          //- form#contact-form.contact-form(action="mail/mail.php" method="post" data-parsley-validate data-parsley-ui-enabled="true" data-parsley-focus="first")
+          form#contact-form.contact-form(action="mail/mail.php" method="post" data-parsley-validate data-parsley-ui-enabled="true" data-parsley-focus="first")
             div
               input#contact-name6LcK(name="contact-name6LcK" placeholder="Your Name" type="text" required data-parsley-required data-parsley-minlength="3")
               input#contact-email6LcK(name="contact-email6LcK" placeholder="Your Email" type="email" data-parsley-type="email" required data-parsley-required)
@@ -103,7 +103,7 @@ html(lang="en")
               textarea#comment.bees(name="comment" rows="3" placeholder="Comment")
             //- div
             //-   div.g-recaptcha( data-sitekey="6LdsBvMUAAAAAC2rxgO3k0NR9EiCh7siuz7KnpMq")
-            input#recaptchaResponse(type="hidden" name="recaptcha_response")
+            //- input#recaptchaResponse(type="hidden" name="recaptcha_response")
             div
               button#contact-submit Submit
             div#form-messages.notify
