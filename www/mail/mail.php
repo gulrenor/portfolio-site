@@ -1,8 +1,6 @@
 <?php
 
-  $contactname = $_POST['contact-name6LcK'];
-  echo 'we got this ' . $contactname;
-  exit('ok quitting');
+  echo checkHoneypot();
 
   function recaptchav3() {
     // Make sure the form has been submitted
@@ -23,11 +21,11 @@
       if ($recaptchatwo->score >= 0.5) {
         // Ok to send the email
         echo "ok to send";
-        return true
+        return true;
       } else {
         // Return an error, or maybe just silence?
         echo "likely spammer";
-        return false
+        return false;
       }
     }
   }
@@ -131,7 +129,4 @@
   } else {
     echo 'There was an error, please try again';
   }
-  echo 'Thanks, your message has been sent (but not really!)';
-  print_r($content);
-
 ?>

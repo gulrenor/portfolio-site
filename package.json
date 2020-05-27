@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run watch",
     "build": "npm-run-all build:*",
-    "build:scss": "echo \"sassifying\" && node-sass src/sass/default.scss -o www/css/",
-    "build:pug": "echo \"pugging\" && pug src/pug/index.pug -o www/",
-    "build:ugly": "echo \"uglifying\" && uglifycss www/css/default.css > www/css/default.min.css",
+    "build:scss": "node-sass src/sass/default.scss -o www/css/",
+    "build:pug": "pug src/pug/index.pug -o www/",
+    "build:ugly": "uglifycss www/css/default.css > www/css/default.min.css",
     "build:js": "concat www/js/scripts.js src/js/*.js",
     "build:minifyjs": "npm run build:js && minify www/js/scripts.js > www/js/scripts.min.js",
     "watch": "npm-run-all --parallel watch:*",
@@ -43,5 +43,8 @@
     "pug-cli": "^1.0.0-alpha6",
     "uglifycss": "0.0.29"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.17.1",
+    "opn": "^6.0.0"
+  }
 }
