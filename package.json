@@ -1,26 +1,29 @@
 {
   "name": "portfolio-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "It's my personal portfolio site.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run watch",
+    "start": "npm run watch && npm run php",
+    "php": "php -S localhost:8000 -t www/",
     "build": "npm-run-all build:*",
     "build:scss": "node-sass src/sass/default.scss -o www/css/",
+    "build:minifycss": "npm run build:scss && postcss www/css/default.css > www/css/default.min.css",
     "build:pug": "pug src/pug/index.pug -o www/",
     "build:ugly": "uglifycss www/css/default.css > www/css/default.min.css",
     "build:js": "concat www/js/scripts.js src/js/*.js",
     "build:minifyjs": "npm run build:js && minify www/js/scripts.js > www/js/scripts.min.js",
     "watch": "npm-run-all --parallel watch:*",
-    "watch:scss": "npm run build:scss -- -w",
+    "watch:scss": "npm run build:minifycss -- -w",
     "watch:pug": "npm run build:pug -- -w",
-    "watch:js": "npm run build:js -- -w"
+    "watch:js": "npm run build:minifyjs -- -w"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concat": "^1.0.3",
+    "cssnano": "^4.1.10",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-bg": "0.0.8",
@@ -39,6 +42,7 @@
     "minify": "^5.1.1",
     "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.1",
     "pug": "^2.0.4",
     "pug-cli": "^1.0.0-alpha6",
     "uglifycss": "0.0.29"

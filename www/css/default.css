@@ -881,3 +881,7 @@ footer {
   width: 0;
   z-index: -1;
   background-color: pink; }
+
+.form-status {
+  padding: .5rem 0;
+  color: white; }

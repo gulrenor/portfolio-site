@@ -1,5 +1,5 @@
 - // Variables
-- var pageTitle = 'Tim Harrison | Web Designer &amp; Developer';
+- var pageTitle = 'Tim Harrison | Web Designer and Developer';
 - var personalNarrative = "I'm a versatile, creative technology professional with a wide range of skills including web development and design, graphic design, and information technology experience. I have a strong knowledge of front and back-end development and design, and I utilize emerging technologies and frameworks to improve user experience on the web. I provide a commitment to quality and detail, and I have strong team skills. I'm seeking a dynamic, collaborative environment to further my skills and grow professionally.";
 
 - var recaptcha = "6LdsBvMUAAAAAC2rxgO3k0NR9EiCh7siuz7KnpMq";
@@ -91,21 +91,18 @@ html(lang="en")
 
         div.contact-form-container
           form#contact-form.contact-form(action="mail/mail.php" method="post" data-parsley-validate data-parsley-ui-enabled="true" data-parsley-focus="first")
+            input#name.bees(name="name" placeholder="Name" type="text")
+            input#email.bees(name="email" placeholder="Email" type="email")
+            textarea#comment.bees(name="comment" rows="3" placeholder="Comment")
             div
               input#contact-name6LcK(name="contact-name6LcK" placeholder="Your Name" type="text" required data-parsley-required data-parsley-minlength="3")
               input#contact-email6LcK(name="contact-email6LcK" placeholder="Your Email" type="email" data-parsley-type="email" required data-parsley-required)
             div
               textarea#contact-comment6LcK(name="contact-comment6LcK" rows="3" placeholder="Your Message" required data-parsley-required data-parsley-minlength="20")
             div
-              input#name.bees(name="name" placeholder="Name" type="text")
-              input#email.bees(name="email" placeholder="Email" type="email")
-            div
-              textarea#comment.bees(name="comment" rows="3" placeholder="Comment")
-            //- div
-            //-   div.g-recaptcha( data-sitekey="6LdsBvMUAAAAAC2rxgO3k0NR9EiCh7siuz7KnpMq")
-            //- input#recaptchaResponse(type="hidden" name="recaptcha_response")
-            div
-              button#contact-submit Submit
+              button#contact-submit(data-action="contact") Submit
+            input#recaptchaResponse(type="hidden" name="recaptcha_response")
+
             div#form-messages.notify
 
           div.social-buttons-container

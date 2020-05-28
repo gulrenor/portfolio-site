@@ -1,9 +1,14 @@
+// Constants
+const yearNow = new Date().getFullYear();
+
 // Current year used for copyright
 $(document).ready(function() {
   var thisYear = new Date().getFullYear();
   $('#copyright-year').html(thisYear);
 });
 
+
+// Form Handler
 let form = document.getElementById('contact-form')
 let formStatus = document.createElement('div')
 formStatus.setAttribute('class', 'form-status alert')
@@ -12,9 +17,8 @@ form.appendChild(formStatus);
 form.onsubmit = (e) => {
   e.preventDefault()
 
+  // Gather form data into a FormData object
   let formdata = new FormData(form)
-  console.log('formdata', formdata)
-
 
   let xhr = new XMLHttpRequest()
   xhr.open(form.method, form.action, true)
@@ -22,65 +26,15 @@ form.onsubmit = (e) => {
 
   // Callback
   xhr.onloadend = (response) => {
-    console.log('response', response)
     if (response.target.status === 200) {
-      formStatus.className += ' skill-tag'
+      formStatus.className += ' success'
       formStatus.innerHTML = response.target.responseText
     } else {
-      formStatus.className += ' skill-tag'
-      formStatus.innerHTML = "An error has occuredddddddddd."
+      formStatus.className += ' error'
+      formStatus.innerHTML = "Something went wrong when submitting your form. Please try again."
     }
   }
 }
-
-// $(function() {
-//   var form = $('#contact-form');
-//   var formMessages = $('#form-messages');
-
-//   $(form).submit(function(event) {
-//     event.preventDefault(); //stop html from submitting form
-
-//     // Check recaptcha was checked
-//     try {
-//       var formData = $(form).serialize();
-
-//       // submit form
-//       $.ajax({
-//           type: 'POST',
-//           url: $(form).attr('action'), //uses the default action from html
-//           data: formData
-//         })
-//         // display success
-//         .done(function(response) {
-//           $(formMessages).removeClass('error');
-//           $(formMessages).addClass('success');
-//           $('#contact-name').prop('readonly', 'readonly');
-//           $('#contact-email').prop('readonly', 'readonly');
-//           $('#contact-comment').prop('readonly', 'readonly');
-//           $('#contact-submit').prop('disabled', 'disabled');
-//           $('#contact-submit').html(response);
-//         })
-
-//         //display error
-//         .fail(function(data) {
-//           $(formMessages).removeClass('success');
-//           $(formMessages).addClass('error');
-//           if (data.responseText !== '') {
-//             $(formMessages).text(data.responseText);
-//           } else {
-//             $(formMessages).text('An error occured.');
-//           }
-//         });
-//     }
-//     catch(err) {
-//       $(formMessages).removeClass('success');
-//       $(formMessages).addClass('error');
-//     }
-//   });
-// });
-
-var dateNow = new Date();
-var yearNow = dateNow.getFullYear();
 
 $(".gallery-item").click(
   function() {
@@ -95,13 +49,13 @@ $(".gallery-item-close").click(
   }
 );
 
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-43244440-1', 'auto');
-  ga('send', 'pageview');
+ga('create', 'UA-43244440-1', 'auto');
+ga('send', 'pageview');
 
 $(document).ready(function() {
 
