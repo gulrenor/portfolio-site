@@ -15,7 +15,8 @@ app.set('views', path.join(__dirname, 'src/pug'))
 app.set('view cache', false)
 
 // set static/public directory for js/css
-app.use('/', express.static('www/static/'))
+// app.use('/', express.static('www/static/'))
+app.use('/images', express.static(path.join(__dirname, 'www/static/images')))
 
 // routes
 app.post('/contact', (req, res) => {
