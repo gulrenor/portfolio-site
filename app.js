@@ -15,7 +15,7 @@ app.set('views', path.join(__dirname, 'src/pug'))
 app.set('view cache', false)
 
 // set static/public directory for js/css
-app.use(express.static(__dirname + '/www/static'))
+app.use(express.static(__dirname + '/static'))
 
 
 // routes
