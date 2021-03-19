@@ -89,12 +89,12 @@ html(lang="en")
 
         div.contact-form-container
           div#form-messages
-          form.contact-form(action="mail/mail.php" method="post" data-parsley-validate)
+          form.contact-form(action="/contact" method="post" data-parsley-validate)
             div
-              input#contact-name(name="contact-name" placeholder="Your Name" type="text" required pattern="/[a-zA-Z]+/")
-              input#contact-email(name="contact-email" placeholder="Your Email" type="email" required)
+              input#contact-name(name="name" placeholder="Your Name" type="text" required pattern="/[a-zA-Z]+/")
+              input#contact-email(name="email" placeholder="Your Email" type="email" required)
             div
-              textarea#contact-comment(name="contact-comment" rows="3" placeholder="Your Message" required data-parsley-minlength="20")
+              textarea#contact-comment(name="message" rows="3" placeholder="Your Message" required data-parsley-minlength="20")
               button#contact-submit Submit
 
           div.social-buttons-container
