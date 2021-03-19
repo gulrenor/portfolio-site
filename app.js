@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 const app = express()
 const port = 3000
 
@@ -10,10 +11,11 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 // use pug to render html
 app.set('view engine', 'pug')
-app.set('views', './src/pug')
+app.set('views', path.join(__dirname, 'src/pug'))
+app.set('view cache', false)
 
 // set static/public directory for js/css
-app.use(express.static(__dirname + '/www'))
+app.use(express.static(__dirname + '/www/static'))
 
 
 // routes
