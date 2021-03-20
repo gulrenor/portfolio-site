@@ -16,7 +16,7 @@ app.set('view cache', false)
 
 // set static/public directory for js/css
 // app.use('/', express.static('www/static/'))
-app.use('/images', express.static(path.join(__dirname, 'www/static/images')))
+app.use('/images', express.static('www/static/images'))
 app.use('/js', express.static(path.join(__dirname, 'www/static/js')))
 app.use('/css', express.static(path.join(__dirname, 'www/static/css')))
 
