@@ -6,11 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "livereload": "livereload --port 3000 www/",
-    "pug": "pug src/pug --out www-test",
-    "sass": "sass --watch src/sass:www/static/css",
+    "pug": "pug src/pug --out www",
+    "sass": "sass src/sass:www/css",
+    "webpack": "npx webpack --mode production --entry ./src/js/scripts.js -o ./www/js/",
     "server": "nodemon -e js,pug app",
     "start": "npm-run-all --parallel sass server",
-    "prod": "node app"
+    "build": "npm-run-all pug sass webpack"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,8 @@
     "nodemon": "^2.0.7",
     "npm-run-all": "^4.1.5",
     "pug": "^3.0.2",
-    "sass": "^1.32.8"
+    "sass": "^1.32.8",
+    "webpack": "^5.27.1",
+    "webpack-cli": "^4.5.0"
   }
 }
