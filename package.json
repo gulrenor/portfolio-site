@@ -9,7 +9,8 @@
     "pug": "pug src/pug --out www-test",
     "sass": "sass --watch src/sass:www/static/css",
     "server": "nodemon -e js,pug app",
-    "start": "npm-run-all --parallel sass server"
+    "start": "npm-run-all --parallel sass server",
+    "prod": "node app"
   },
   "author": "",
   "license": "ISC",
