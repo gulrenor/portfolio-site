@@ -1,3 +1,5 @@
+import 'jquery'
+import 'parsleyjs'
 import './common'
 import './contact'
 import './currentYear'
