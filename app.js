@@ -4,7 +4,7 @@ const app = express()
 const port = 3000
 
 // nodemailer
-const nodenamiler = require('nodemailer')
+const nodemailer = require('nodemailer')
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: true}))
@@ -16,9 +16,9 @@ app.set('view cache', false)
 
 // set static/public directory for js/css
 // app.use('/', express.static('www/static/'))
-app.use('/images', express.static(path.join(__dirname, 'www/static/images')))
-app.use('/js', express.static(path.join(__dirname, 'www/static/js')))
-app.use('/css', express.static(path.join(__dirname, 'www/static/css')))
+app.use('/images', express.static(path.join(__dirname, 'build/images')))
+app.use('/js', express.static(path.join(__dirname, 'build/js')))
+app.use('/css', express.static(path.join(__dirname, 'build/css')))
 
 // routes
 app.post('/contact', (req, res) => {

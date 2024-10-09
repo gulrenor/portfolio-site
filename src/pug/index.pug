@@ -2,6 +2,8 @@
 - var pageTitle = 'Tim Harrison | Web Designer &amp; Developer';
 - var personalNarrative = "I'm a versatile, creative technology professional with a wide range of skills including web development and design, graphic design, and information technology experience. I have a strong knowledge of front and back-end development and design, and I utilize emerging technologies and frameworks to improve user experience on the web. I provide a commitment to quality and detail, and I have strong team skills. I'm seeking a dynamic, collaborative environment to further my skills and grow professionally.";
 
+- var cdn_root = 'https://assets-twharrison.nyc3.digitaloceanspaces.com/'
+
 include _skills
 include _social
 include _projects
@@ -68,7 +70,7 @@ html(lang="en")
       a#about.anchor
       section.section.dark
         div.clearfix
-          img.portrait.right(src="images/about/tim-silo.png" alt="Timothy Harrison Portrait")
+          img.portrait.right(src=cdn_root + "images/about/tim-silo.png" alt="Timothy Harrison Portrait")
           h2 A bit about myself.
           p= personalNarrative
           h4 My Skills
@@ -109,3 +111,4 @@ html(lang="en")
   script(src="https://code.jquery.com/jquery-1.12.0.min.js")
   script(src="js/parsley.min.js" type="text/javascript")
   script(src="js/main.js" type="text/javascript")
+  

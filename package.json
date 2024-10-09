@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "livereload": "livereload --port 3000 www/",
-    "pug": "pug src/pug --out www",
-    "sass": "sass src/sass:www/css",
-    "webpack": "npx webpack --mode production --entry ./src/js/scripts.js -o ./www/js/",
+    "livereload": "livereload --port 3000 build/",
+    "pug": "pug src/pug --out build",
+    "sass": "sass src/sass:build/css",
+    "webpack": "npx webpack --mode production --entry ./src/js/scripts.js -o ./build/js/",
     "server": "nodemon -e js,pug app",
-    "start": "npm-run-all --parallel sass server",
+    "start": "npm-run-all --parallel pug sass webpack server",
     "build": "npm-run-all pug sass webpack"
   },
   "author": "",
