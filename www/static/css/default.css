@@ -459,8 +459,8 @@ hr {
   width: 100%;
 }
 
-figcaption,
-figure {
+figure,
+figcaption {
   margin: 0;
   padding: 0;
 }
@@ -691,11 +691,13 @@ textarea:focus {
   cursor: pointer;
 }
 
+.col2,
 .col-3,
 .col-4 {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.col2,
 .col-3,
 .col-4 {
   padding: 1rem;
@@ -882,12 +884,6 @@ textarea:focus {
   align-self: center;
   width: 100%;
 }
-
-.parsley-success {
-  border: 2px solid green; }
-
-.parsley-error {
-  border: 2px solid red; }
 
 footer {
   font-size: 0.8rem;

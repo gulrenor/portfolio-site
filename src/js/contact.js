@@ -1,8 +1,8 @@
-$(function() {
+jQuery(function() {
   var form = $('#contact-form');
   var formMessages = $('#form-messages');
 
-  $(form).submit(function(event) {
+  $(form).on("submit", (function(event) {
     event.preventDefault(); //stop html from submitting form
 
     // Check recaptcha was checked
@@ -29,22 +29,15 @@ $(function() {
             $('#contact-submit').html(response);
           })
 
-          //display error
-          .fail(function(data) {
-            $(formMessages).removeClass('success');
-            $(formMessages).addClass('error');
-            if (data.responseText !== '') {
-              $(formMessages).text(data.responseText);
-            } else {
-              $(formMessages).text('An error occured.');
-            }
-          });
-      };
-    }
-    catch(err) {
+    //display error
+    .fail(function(data) {
       $(formMessages).removeClass('success');
       $(formMessages).addClass('error');
-      $(formMessages).text('Please prove you\'re not a robot.');
-    }
-  });
+      if (data.responseText !== '') {
+        $(formMessages).text(data.responseText);
+      } else {
+        $(formMessages).text('An error occured.');
+      }
+    });
+  }));
 });

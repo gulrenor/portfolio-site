@@ -2,21 +2,25 @@
 - var pageTitle = 'Tim Harrison | Web Designer &amp; Developer';
 - var personalNarrative = "I'm a versatile, creative technology professional with a wide range of skills including web development and design, graphic design, and information technology experience. I have a strong knowledge of front and back-end development and design, and I utilize emerging technologies and frameworks to improve user experience on the web. I provide a commitment to quality and detail, and I have strong team skills. I'm seeking a dynamic, collaborative environment to further my skills and grow professionally.";
 
+- const yearNow = new Date().getFullYear();
+
+- var cdn_root = 'https://assets-twharrison.nyc3.digitaloceanspaces.com/'
+
 include _skills
 include _social
 include _projects
 
-- // Mixins
-
+//- Mixins
 mixin gallery-item(project)
-  a.gallery-item
+  a(data-target=project.id).gallery-item.js-modal-trigger
     img(src=project.thumb alt=project.title)
     div
       h2= project.title
       p= project.description
-  article.gallery-modal
+  article(id=project.id).gallery-modal.modal
     div
-      i.fa.fa-times.fa-3x.gallery-item-close
+      p.modal-close
+        i.fa.fa-times.fa-3x.gallery-item-close
       h2= project.title
       p= project.narrative
       p
@@ -34,6 +38,7 @@ mixin social(network)
     i.fa.fa-2x(class=network.faIcon)
     p= network.name
 
+
 doctype html
 html(lang="en")
   head
@@ -41,7 +46,7 @@ html(lang="en")
     link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
-    link(rel="stylesheet" href="css/default.min.css")
+    link(rel="stylesheet" href="css/default.css")
 
   body#top
     main
@@ -68,8 +73,8 @@ html(lang="en")
       a#about.anchor
       section.section.dark
         div.clearfix
-          img.portrait.right(src="images/about/tim-silo.png" alt="Timothy Harrison Portrait")
-          h2 A little bit about myself.
+          img.portrait.right(src=cdn_root + "images/about/tim-silo.png" alt="Timothy Harrison Portrait")
+          h2 A bit about myself.
           p= personalNarrative
           h4 My Skills
           .skills-container
@@ -88,17 +93,14 @@ html(lang="en")
         span Send me a message, or connect with me on social networks.
 
         div.contact-form-container
-          form#contact-form.contact-form(action="mail/mail.php" method="post" data-parsley-validate data-parsley-ui-enabled="true" data-parsley-focus="first")
-            div
-              input#contact-name(name="contact-name" placeholder="Your Name" type="text" required data-parsley-required data-parsley-minlength="3")
-              input#contact-email(name="contact-email" placeholder="Your Email" type="email" data-parsley-type="email" required data-parsley-required)
-            div
-              textarea#contact-comment(name="contact-comment" rows="3" placeholder="Your Message" required data-parsley-required data-parsley-minlength="20")
-            div
-              div.g-recaptcha( data-sitekey="6LcKgSAUAAAAAEyRCjwiSEZbr__O8ew_v8Yqtjqu")
-            div
-              button#contact-submit Submit
-            div#form-messages.notify
+          //- div#form-messages
+          //- form.contact-form(action="/contact" method="post" data-parsley-validate)
+          //-   div
+          //-     input#contact-name(name="name" placeholder="Your Name" type="text" required pattern="/[a-zA-Z]+/")
+          //-     input#contact-email(name="email" placeholder="Your Email" type="email" required)
+          //-   div
+          //-     textarea#contact-comment(name="message" rows="3" placeholder="Your Message" required data-parsley-minlength="20")
+          //-     button#contact-submit Submit
 
           div.social-buttons-container
             for network in arrSocial
@@ -109,7 +111,4 @@ html(lang="en")
         span#copyright-year=yearNow
         span &nbsp;Tim Harrison
 
-  script(src="https://code.jquery.com/jquery-1.12.0.min.js")
-  script(src="js/parsley.min.js" type="text/javascript")
-  script(src="js/scripts.min.js" type="text/javascript")
-  script(src="https://www.google.com/recaptcha/api.js" async defer)
+  script(src="js/main.js" type="text/javascript")
