@@ -8,7 +8,7 @@
     "livereload": "livereload --port 3000 build/",
     "pug": "pug src/pug --out build",
     "sass": "sass src/sass:build/css",
-    "webpack": "npx webpack --mode production --entry ./src/js/scripts.js -o ./build/js/",
+    "webpack": "npx webpack --mode development --entry ./src/js/scripts.js -o ./build/js/",
     "server": "nodemon -e js,pug app",
     "start": "npm-run-all --parallel pug sass webpack server",
     "build": "npm-run-all pug sass webpack"
@@ -29,5 +29,9 @@
     "sass": "^1.32.8",
     "webpack": "^5.27.1",
     "webpack-cli": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.31",
+    "@webpack-cli/init": "^1.1.3"
   }
 }

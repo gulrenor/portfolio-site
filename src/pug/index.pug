@@ -2,23 +2,25 @@
 - var pageTitle = 'Tim Harrison | Web Designer &amp; Developer';
 - var personalNarrative = "I'm a versatile, creative technology professional with a wide range of skills including web development and design, graphic design, and information technology experience. I have a strong knowledge of front and back-end development and design, and I utilize emerging technologies and frameworks to improve user experience on the web. I provide a commitment to quality and detail, and I have strong team skills. I'm seeking a dynamic, collaborative environment to further my skills and grow professionally.";
 
+- const yearNow = new Date().getFullYear();
+
 - var cdn_root = 'https://assets-twharrison.nyc3.digitaloceanspaces.com/'
 
 include _skills
 include _social
 include _projects
 
-- // Mixins
-
+//- Mixins
 mixin gallery-item(project)
-  a.gallery-item
+  a(data-target=project.id).gallery-item.js-modal-trigger
     img(src=project.thumb alt=project.title)
     div
       h2= project.title
       p= project.description
-  article.gallery-modal
+  article(id=project.id).gallery-modal.modal
     div
-      i.fa.fa-times.fa-3x.gallery-item-close
+      p.modal-close
+        i.fa.fa-times.fa-3x.gallery-item-close
       h2= project.title
       p= project.narrative
       p
@@ -35,6 +37,7 @@ mixin social(network)
   a(href=network.url target="_blank")
     i.fa.fa-2x(class=network.faIcon)
     p= network.name
+
 
 doctype html
 html(lang="en")
@@ -109,4 +112,3 @@ html(lang="en")
         span &nbsp;Tim Harrison
 
   script(src="js/main.js" type="text/javascript")
-  

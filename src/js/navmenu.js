@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(function() {
 
   function checkBreakpoint() {
     if (window.matchMedia('(max-width: 768px)').matches) {
@@ -8,22 +8,22 @@ $(document).ready(function() {
     }
   };
 
-  $(window).resize(function() {
+  $(window).on("resize", (function() {
     if (!checkBreakpoint()) {
       $('nav').show(300);
     }
-  })
+  }));
 
-  $('.hamburger').click(function() {
+  $('.hamburger').on("click", (function() {
     if (checkBreakpoint()) {
       $('nav').toggle(300);
     }
-  });
+  }));
 
-  $('.nav-menu a').click(function() {
+  $('.nav-menu a').on("click", (function() {
     if (checkBreakpoint()) {
       $('nav').toggle(300);
     }
-  });
+  }));
 
 });

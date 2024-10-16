@@ -1,8 +1,8 @@
-$(function() {
+jQuery(function() {
   var form = $('#contact-form');
   var formMessages = $('#form-messages');
 
-  $(form).submit(function(event) {
+  $(form).on("submit", (function(event) {
     event.preventDefault(); //stop html from submitting form
 
     var formData = $(form).serialize();
@@ -34,5 +34,5 @@ $(function() {
         $(formMessages).text('An error occured.');
       }
     });
-  });
+  }));
 });

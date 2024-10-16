@@ -495,9 +495,11 @@ textarea {
   }
 }
 
+
+
 .gallery-modal {
   background-color: $modal-bg;
-  display: none;
+  visibility: hidden;
   height: 100%;
   left: 0;
   overflow: hidden;
@@ -505,6 +507,10 @@ textarea {
   top: 0;
   width: 100%;
   z-index: 9998;
+
+  &.is-active {
+    visibility: visible;
+  }
 
   > div {
     background-color: $white;

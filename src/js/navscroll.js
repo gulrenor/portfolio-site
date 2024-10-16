@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(function() {
   // Add smooth scrolling to all links
   $("header a").on('click', function(event) {
 
@@ -20,11 +20,11 @@ $(document).ready(function() {
   });
 });
 
-$(window).scroll(function() {
+$(window).on("scroll", (function() {
   if ($(document).scrollTop() > 30) {
     $('header').addClass('sticky');
     //$('header').animate({height:'5rem'}, 1000);
   } else {
     $('header').removeClass('sticky');
   }
-});
+}));
